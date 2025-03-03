@@ -212,24 +212,21 @@ body.fullscreen-modal-open {
 /* Target the scrollable Masonry container */
 .masonry-scroll-container {
   scrollbar-width: thin; /* For Firefox: thin scrollbar */
-  scrollbar-color: rgba(0, 0, 0) transparent; /* Thumb color, transparent track */
+  scrollbar-color: var(--black-background-10) transparent; /* Thumb color, transparent track */
 }
 
 /* WebKit-based browsers */
 .masonry-scroll-container::-webkit-scrollbar {
-  width: 2px; /* Set the scrollbar width */
+  width: 8px;
 }
 
 .masonry-scroll-container::-webkit-scrollbar-track {
-  background: transparent; /* Make the track invisible */
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  background: transparent;
 }
 
 .masonry-scroll-container::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0); /* Thumb color */
-  border-radius: 32px; /* Fully rounded corners */
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  background-color: var(--black-background-10);
+  border-radius: 9999px;
 }
 
 .masonry-scroll-container::-webkit-scrollbar-thumb:hover {

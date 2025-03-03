@@ -162,17 +162,19 @@ export default function NotificationsList() {
         {/* Table Header */}
         <div className="flex rounded-full bg-[var(--black-background-5)] px-[var(--spacing-4)] py-[var(--spacing-2)] text-sm text-[var(--text-black-60)]">
           <div className="flex-1">Description</div>
-          <div className="ml-auto w-[180px]">Date</div>
+          <div className="ml-auto w-[100px]">Date</div>
           <div className="w-[80px]">Time</div>
         </div>
 
         {/* Notifications List - Scrollable */}
-        <div className="masonry-scroll-container flex-1 overflow-y-auto">
+        <div
+          className="masonry-scroll-container flex-1 overflow-y-auto pr-2"
+        >
           {filteredNotifications.map((notification, index) => (
             <div
               key={notification.id}
               className={cn(
-                "flex pr-[var(--spacing-4)] py-[var(--spacing-3)]",
+                "flex py-[var(--spacing-3)] pr-[var(--spacing-4)]",
                 index !== filteredNotifications.length - 1 &&
                   "border-b border-[var(--border-black-10)]"
               )}
@@ -191,7 +193,7 @@ export default function NotificationsList() {
               <span
                 className={cn(
                   fontCaptionNormal,
-                  "ml-auto w-[180px] text-[var(--text-black-60)] pl-[var(--spacing-3)]"
+                  "ml-auto w-[100px] pl-[var(--spacing-3)] text-[var(--text-black-60)]"
                 )}
               >
                 {notification.date}
@@ -199,7 +201,7 @@ export default function NotificationsList() {
               <span
                 className={cn(
                   fontCaptionNormal,
-                  "w-[80px] text-[var(--text-black-60)] pl-[var(--spacing-3)]"
+                  "w-[80px] pl-[var(--spacing-3)] text-[var(--text-black-60)]"
                 )}
               >
                 {notification.time}
