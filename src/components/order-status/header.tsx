@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Expand, Minimize } from "lucide-react"
 
-import { cn } from "@/lib/utils"
 import { MainButton } from "@/components/mainButton"
 import { fontHeadline, fontTitle1, fontTitle2 } from "@/styles/typography"
 
@@ -52,12 +51,12 @@ export function OrderHeader() {
   }, [])
 
   return (
-    <div className="flex flex-col gap-6">
+    <header className="flex flex-col gap-6">
       {/* Top Header */}
-      <div className="flex items-center justify-between">
-      <h1 className={cn(fontTitle1, "text-[var(--text-black-100)]")}>
-  {"Order Status"}
-</h1>
+      <section className="flex items-center justify-between">
+        <h1 className={`${fontTitle1} text-[var(--text-black-100)]`}>
+          Order Status
+        </h1>
 
         <MainButton
           variant="secondary"
@@ -69,10 +68,10 @@ export function OrderHeader() {
         >
           <span className="ml-2 text-[var(--text-black-100)]">FullScreen</span>
         </MainButton>
-      </div>
+      </section>
 
       {/* Sub Header */}
-      <div className="flex items-center justify-between rounded-2xl bg-gray-100/40 px-[var(--spacing-4)] py-[var(--spacing-4)] backdrop-blur-sm">
+      <section className="flex items-center justify-between rounded-2xl bg-gray-100/40 px-[var(--spacing-4)] py-[var(--spacing-4)] backdrop-blur-sm">
         <div className="flex items-center gap-3">
           <Image
             src={logo}
@@ -82,23 +81,17 @@ export function OrderHeader() {
             className="rounded-[var(--round-3)]"
           />
           <span
-            className={cn(
-              fontHeadline,
-              "text-xl font-medium text-[var(--text-black-100)]"
-            )}
+            className={`${fontHeadline} text-xl font-medium text-[var(--text-black-100)]`}
           >
             McDonald's
           </span>
         </div>
         <span
-          className={cn(
-            fontTitle2,
-            "text-[32px] font-bold text-[var(--text-black-100)]"
-          )}
+          className={`${fontTitle2} text-[32px] font-bold text-[var(--text-black-100)]`}
         >
           {currentTime}
         </span>
-      </div>
-    </div>
+      </section>
+    </header>
   )
 }
