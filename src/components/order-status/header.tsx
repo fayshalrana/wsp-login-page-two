@@ -14,18 +14,19 @@ export function OrderHeader() {
   const [currentTime, setCurrentTime] = useState<string>("")
   const [isFullScreen, setIsFullScreen] = useState(false)
 
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date()
-      setCurrentTime(
-        now.toLocaleTimeString("en-US", {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        })
-      )
-    }
+  // Function to update time
+  const updateTime = () => {
+    const now = new Date()
+    setCurrentTime(
+      now.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      })
+    )
+  }
 
+  useEffect(() => {
     updateTime()
     const interval = setInterval(updateTime, 1000)
     return () => clearInterval(interval)
@@ -33,17 +34,12 @@ export function OrderHeader() {
 
   const handleFullScreen = () => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().then(() => {
-        setIsFullScreen(true)
-      })
+      document.documentElement.requestFullscreen().catch(console.error)
     } else {
-      document.exitFullscreen().then(() => {
-        setIsFullScreen(false)
-      })
+      document.exitFullscreen().catch(console.error)
     }
   }
 
-  // Listen for fullscreen changes
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullScreen(!!document.fullscreenElement)
@@ -68,6 +64,7 @@ export function OrderHeader() {
           className="max-w-max !border !border-[var(--border-black-10)] bg-transparent p-16px hover:outline-none"
           icon={isFullScreen ? Minimize : Expand}
           iconSize="24"
+          aria-label="Toggle Fullscreen"
         >
           <span className="ml-2 text-[var(--text-black-100)]">FullScreen</span>
         </MainButton>
