@@ -1,0 +1,55 @@
+Task: Notifications Screen
+
+Create a notifications.tsx component under src/components/notifications and a page under src/app/[locale]/notifications in your Next.js + TypeScript + Tailwind CSS project. The design should match the attached screenshot exactly. Reuse existing components from src/components where possible.
+
+General Requirements:
+Utilities & Typography:
+
+Use the cn utility from src/lib/utils to combine Tailwind CSS classes.
+Import typography variables from src/styles/typography.ts (e.g., fontTitle1, fontHeadline, fontBodyNormal) and apply them using cn.
+Apply dynamic @import for components where needed.
+Styling & Layout:
+
+Maintain a transparent or subtle gradient background for the main container.
+Use consistent spacing around elements, such as p-4 or m-4, based on the custom spacing scale.
+Ensure the new screen aligns with the sidebar and doesn’t overlap.
+UI-Only Implementation:
+
+No backend logic or live data fetching is required. Use hardcoded sample notifications and settings.
+Rely on existing components such as dropdown, toggle, and radio from src/components.
+Use the custom scroll style where needed.
+Layout Overview:
+1. Top Bar:
+Display a simple top-left title: "Notifications" using fontTitle1 or a similar large title style.
+Add spacing of spacing-6 above and below to separate it from the sidebar’s brand/header area.
+2. Main Content (Two-Column Layout):
+Left Panel (Notifications List) — w-2/3, bg-white-60, rounded-3, p-4:
+
+Unread Label: Display "Unread (3)" styled with fontHeadline. Use the @badge.tsx component for the label, small size.
+Sort Dropdown: Use the @select.tsx component with options "All" and "Unread" and the label "Sort by:" placed at the upper-right corner.
+Search Option: Use the @searchInput.tsx component for the search functionality.
+Notifications Table/List:
+Three columns: Description (75%), Date (15%), and Time (10%).
+Each row will have:
+Full-width background with a pill shape (rounded-3) and a background of bg-black/5.
+Description styled with fontBodyNormal, where unread items are text-black/100 and read items are text-black/40.
+Date & Time styled with text-black/60.
+Example row:
+"#202 order, 'mushroom burger' was accepted."
+Date: "6 Jan 2024"
+Time: "1:32"
+Add vertical scrolling for a long list and ensure the header row remains visible.
+Padding: p-4, Row spacing: py-3.
+Right Panel (Settings) — w-1/3, bg-white-60, rounded-3, h-fit:
+
+Title: Display "Settings" styled with fontHeadline.
+Banner/Sound Modes: Use @radioButton.tsx for the following options:
+Banner and Sound
+Banner Only
+Sound Only
+None
+Separator Line between the radio buttons and toggles.
+Toggles: Use @toggleSwitch.tsx for the following:
+Play Repeatedly
+Table Notifications
+Order Notifications

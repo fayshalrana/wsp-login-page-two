@@ -44,7 +44,7 @@ export function OrderGrid() {
         >
           Ready
         </h2>
-        <div className="w-full flex-1 overflow-y-auto px-[24.5px] pb-6">
+        <div className="w-full flex-1 overflow-y-auto pl-[24.5px] pr-4 pb-6">
           <div className="flex w-full flex-col gap-2">
             <div className="rounded-3 bg-[#00A524] p-4">
               <OrderCard orderNumber="3885" status="ready" isLarge={true} />
