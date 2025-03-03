@@ -1,5 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  rules: {
+    // Disable a specific ESLint rule
+    "no-unused-vars": "off",
+    // You can also adjust the severity (e.g., "warn" or "error")
+    "react/prop-types": "warn",
+  },
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
