@@ -22,7 +22,7 @@ export default function LoginForm() {
 
   return (
     <div className="flex w-full items-center justify-center px-[var(--spacing-4)]">
-      <div className="w-full max-w-[360px] space-y-[var(--spacing-8)]">
+      <div className="w-full max-w-[360px] space-y-[var(--spacing-4)]">
         <div className="text-center">
           <h2 className={`${fontTitle1} text-[var(--text-black-100)]`}>
             Welcome Back

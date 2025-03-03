@@ -39,18 +39,18 @@ export default function ServicePanel() {
         />
 
         {/* logo */}
-        <div className="absolute left-[var(--spacing-6)] top-[var(--spacing-6)] z-10">
+        <div className="absolute left-[var(--spacing-8)] top-[var(--spacing-8)] z-10 w-[164px]">
           <Image
             src={logo}
             alt="Orderific Logo"
-            width={120}
+            width={164}
             height={28}
             className="object-contain"
           />
         </div>
 
         {/* Content */}
-        <div className="absolute bottom-16 left-[var(--spacing-6)] right-[var(--spacing-6)] z-10">
+        <div className="absolute bottom-[var(--spacing-8)] left-[var(--spacing-8)] right-[var(--spacing-7)] z-10">
           <h1
             className={`${fontBigTypoDesktop} mb-4 text-[var(--text-white-100)]`}
           >

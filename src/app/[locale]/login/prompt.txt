@@ -1,0 +1,81 @@
+Task: Build a Responsive Login Page in Next.js
+
+You need to convert a screenshot into a fully functional Next.js app using Tailwind CSS and ShadCN UI components, ensuring pixel-perfect implementation. Follow the design precisely, using global styles from global.css and typography settings from typography.ts.
+
+1️⃣ Analyze the Screenshot
+✅ Review the layout, colors, typography, spacing, and interactive elements.
+✅ Identify reusable components from the existing components/ folder.
+
+2️⃣ Plan the Component Structure
+✅ Break down the UI into small, reusable components.
+✅ Use semantic HTML and ShadCN UI components.
+✅ Ensure responsive design across different screen sizes.
+
+📌 UI Implementation Details
+🔹 Service Panel (@servicePanel.tsx)
+✅ Max width: 480px
+✅ Background Image: signin.png
+✅ Rounded Border Radius: rounded-radius-6 (from global.css)
+✅ Typography & Colors: Use typography.ts and global.css
+✅ Classes: Import global styles for padding, spacing, and text
+
+📌 Responsive Behavior:
+
+Desktop View: Panel is visible.
+Tablet & Mobile: Panel is hidden.
+
+🔹 Page Layout (@page.tsx)
+✅ Padding: 16px (use global variable from global.css).
+✅ Structure: Match the provided screenshot.
+
+📌 Tablet Mode Adjustments:
+
+Stack logo and "Service Panel" at the top (flex-col).
+
+🔹 Overlays
+✅ First Overlay
+Background Color: Background/Brand/Orange 100 (from global.css).
+✅ Second Overlay
+Position: absolute, bottom: 0, left: 0, right: 0.
+Background Gradient: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 50%, #000000 100%);
+
+Logo
+✅ For desktop Image Path: public/Logo-white.png
+
+Login Form (@loginForm.tsx)
+✅ Max Width: 360px (inside a full-width container).
+✅ Centered Horizontally.
+
+🔹 Content Section
+✅ Title: "Welcome Back"
+✅ Typography & Colors: Use styles from typography.ts and global.css.
+
+🔹 Input Fields (Email & Password)
+✅ Use existing Input.tsx (@input.tsx) with variant="signIn".
+✅ Password Input:
+
+Should include eye.svg and eyeoff.svg (from public/).
+🔹 Checkbox ("Remember Me") (@checkbox.tsx)
+✅ Use existing Checkbox.tsx component.
+✅ Cursor: pointer on hover.
+✅ Checked State:
+
+When clicked, the checkbox should turn green (matching the image).
+🔹 Login with Code
+✅ Underlined text.
+
+🔹 Sign In Button
+✅ Use mainButton.tsx (@mainButton.tsx) with variant="primary".
+✅ Button State:
+
+Disabled if any field is empty.
+Enabled when all fields are filled (Background turns black, matching the image).
+
+
+📌 Responsive Behavior Summary
+✔ Desktop Mode:
+
+Service Panel visible, login form aligned properly.
+✔ Tablet & Mobile Mode:
+
+Service Panel is hidden.

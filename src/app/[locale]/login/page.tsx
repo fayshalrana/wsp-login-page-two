@@ -4,7 +4,9 @@ import { useState } from "react"
 import Image from "next/image"
 import LoginForm from "@/components/login/loginForm"
 import ServicePanel from "@/components/login/servicePanel"
-import logo from "../../../../public/logo.webp" 
+import logo from "../../../../public/original-logo.svg" 
+import { fontTitle1, fontBodyNormal } from "@/styles/typography"
+
 
 export default function Login() {
   const [email, setEmail] = useState("")
@@ -12,15 +14,15 @@ export default function Login() {
     <main className="h-[100vh] w-full overflow-hidden p-[var(--spacing-4)]">
       <div className="flex h-full w-full gap-[var(--spacing-4)] flex-col lg:flex-row">
         {/* Tablet Header - Only visible on medium screens */}
-        <div className="md:hidden lg:hidden flex flex-col items-center gap-4 w-full mb-8">
+        <div className="lg:hidden flex flex-col items-center gap-4 w-full mb-8">
           <Image
             src={logo}
             alt="Orderific Logo"
-            width={120}
+            width={140}
             height={28}
             className="object-contain"
           />
-          <h1 className="text-2xl font-semibold text-[#1A1A1A]">Service Panel</h1>
+          <h1 className={`${fontTitle1} text-[#1A1A1A]`}>Service Panel</h1>
         </div>
 
         {/* Left Panel - Service Panel with Image - Hidden on tablet */}
