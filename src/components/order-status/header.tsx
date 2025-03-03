@@ -83,7 +83,7 @@ export function OrderHeader() {
           <span
             className={`${fontHeadline} text-xl font-medium text-[var(--text-black-100)]`}
           >
-            McDonald's
+            McDonald&apos;s
           </span>
         </div>
         <span
