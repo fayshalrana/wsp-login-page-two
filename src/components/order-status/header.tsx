@@ -71,7 +71,7 @@ export function OrderHeader() {
       </section>
 
       {/* Sub Header */}
-      <section className="flex items-center justify-between rounded-2xl bg-gray-100/40 px-[var(--spacing-4)] py-[var(--spacing-4)] backdrop-blur-sm">
+      <section className="flex items-center justify-between rounded-2xl bg-[var(--black-background-5)] px-[var(--spacing-4)] py-[var(--spacing-4)] backdrop-blur-sm">
         <div className="flex items-center gap-3">
           <Image
             src={logo}

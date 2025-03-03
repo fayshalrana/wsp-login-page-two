@@ -66,7 +66,7 @@ export default function LoginWithCodeForm() {
             {/* Code input boxes */}
             <div className="flex flex-col items-center gap-[var(--spacing-4)]">
               <p className={`${fontBodyNormal} text-[var(--text-black-60)]`}>
-                Enter 6 digit code
+                <strong>Enter</strong> 6 digit pin
               </p>
               <div className="flex items-center justify-center gap-2">
                 {code.map((digit, index) => (
