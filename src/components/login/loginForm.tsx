@@ -99,7 +99,7 @@ export default function LoginForm() {
                 </label>
               </div>
               <a
-                href="#"
+                href="/login-with-code"
                 className={`${fontButtonLarge} underline`}
               >
                 Login with Code
