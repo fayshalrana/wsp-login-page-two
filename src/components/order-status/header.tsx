@@ -56,13 +56,13 @@ export function OrderHeader() {
       {/* Top Header */}
       <div className="flex items-center justify-between">
       <h1 className={cn(fontTitle1, "text-[var(--text-black-100)]")}>
-  {"Order Status's"}
+  {"Order Status"}
 </h1>
 
         <MainButton
           variant="secondary"
           onClick={handleFullScreen}
-          className="max-w-max !border !border-[var(--border-black-10)] bg-transparent p-16px hover:outline-none"
+          className="max-w-max !border !border-[var(--border-black-10)] bg-transparent p-[16px] hover:outline-none"
           icon={isFullScreen ? Minimize : Expand}
           iconSize="24"
           aria-label="Toggle Fullscreen"

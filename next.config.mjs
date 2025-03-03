@@ -20,6 +20,7 @@ const nextConfig = {
       },
     ],
     domains: ["www.publiish.io", "images.unsplash.com"], // Fixed the unsplash entry
+   
   },
 };
 
