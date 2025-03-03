@@ -55,9 +55,10 @@ export function OrderHeader() {
     <div className="flex flex-col gap-6">
       {/* Top Header */}
       <div className="flex items-center justify-between">
-        <h1 className={cn(fontTitle1, "text-[var(--text-black-100)]")}>
-          Order Status
-        </h1>
+      <h1 className={cn(fontTitle1, "text-[var(--text-black-100)]")}>
+  {"Order Status's"}
+</h1>
+
         <MainButton
           variant="secondary"
           onClick={handleFullScreen}
