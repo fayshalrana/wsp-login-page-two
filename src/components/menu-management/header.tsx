@@ -30,19 +30,19 @@ export function MenuManagementHeader({
   onSearchChange,
 }: HeaderProps) {
   return (
-    <div className="flex h-[72px] w-full items-center gap-4 lg:gap-8 py-[var(--spacing-3)] overflow-hidden">
+    <div className="flex h-[72px] w-full items-center gap-4 lg:gap-8 py-[var(--spacing-3)] lg:overflow-hidden">
       <h1 className={fontTitle1}>Menu Management</h1>
 
-      <div className="flex flex-1 items-center justify-center">
+      <div className="flex flex-1 items-center justify-start">
         <div className="flex items-center gap-4 rounded-full p-1">
           {serviceOptions.map((option) => (
             <div key={option.id} className="relative">
               <button
                 onClick={() => onServiceChange(option.id)}
-                className={`relative flex items-center justify-center rounded-full px-4 py-3 transition-all ${
+                className={`relative flex items-center text-[16px] justify-center rounded-full px-4 py-3 transition-all ${
                   selectedService === option.id
                     ? "bg-black text-white shadow-none"
-                    : "bg-white text-black shadow-lg hover:bg-black/5"
+                    : "bg-white text-black shadow-sm hover:bg-black/5"
                 }`}
               >
                 {option.label}
