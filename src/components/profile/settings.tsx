@@ -87,7 +87,7 @@ export function Settings({ defaultPage, onDefaultPageChange }: SettingsProps) {
             disabled={!isPasswordValid}
             className={`hover:outline-transparent w-full transition-colors py-3 mt-[22px] ${
               !isPasswordValid
-                ? "bg-[var(--black-5)] text-[var(--black-40)]"
+                ? "bg-[var(--black-5)] text-[var(--black-40)] cursor-not-allowed"
                 : "bg-black text-white"
             }`}
             style={{ borderRadius: "var(--round-6)" }}
