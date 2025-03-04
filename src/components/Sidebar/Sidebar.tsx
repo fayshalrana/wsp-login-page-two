@@ -29,7 +29,16 @@ const Sidebar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     !currentRoute ||
     (!currentRoute.includeMainSidebar && !currentRoute.includeSecondarySidebar)
   ) {
-    return <div>{children}</div>
+    return (
+      <div
+        className={cn(
+          "h-full w-full",
+          isFullscreen && "fixed inset-0 bg-white"
+        )}
+      >
+        {children}
+      </div>
+    )
   }
 
   const renderSecondaySidebarButton = (item: Route, index: number) => {
@@ -89,13 +98,15 @@ const Sidebar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }
 
   return (
-    <div className="flex h-full w-full bg-transparent text-black-100">
-      <div className={cn(
-        "lg:fixed z-50 flex lg:h-full lg:left-0 lg:w-24 lg:flex-col lg:my-0",
-        "fixed flex-row w-auto top-0 left-[16px] right-[16px] bottom-auto h-[64px] rounded-6 my-4",
-        "items-center justify-between bg-transparent py-4",
-        "bg-white-100 lg:bg-transparent",
-      )}>
+    <div className="flex h-screen w-full bg-transparent text-black-100">
+      <div
+        className={cn(
+          "z-50 flex lg:fixed lg:left-0 lg:my-0 lg:h-full lg:w-24 lg:flex-col",
+          "fixed bottom-auto left-[16px] right-[16px] top-0 my-4 h-[64px] w-auto flex-row rounded-6",
+          "items-center justify-between bg-transparent py-4",
+          "bg-white-100 lg:bg-transparent"
+        )}
+      >
         <Image
           src="/logo.png"
           alt="logo"
@@ -103,26 +114,30 @@ const Sidebar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           height={64}
           className="h-16 w-16"
         />
-        <div className={cn(
-          "fixed left-1/2 bottom-[32px] top-auto h-[64px] w-auto flex-row -translate-x-1/2",
-          "lg:left-auto lg:bottom-auto lg:auto lg:flex-col lg:w-fit lg:-translate-x-0 lg:h-auto",
-          "lg:relative z-50 flex gap-2 rounded-6 bg-black-100 px-2 py-2"
-        )}>
+        <div
+          className={cn(
+            "fixed bottom-[32px] left-1/2 top-auto h-[64px] w-auto -translate-x-1/2 flex-row",
+            "lg:auto lg:bottom-auto lg:left-auto lg:h-auto lg:w-fit lg:-translate-x-0 lg:flex-col",
+            "z-50 flex gap-2 rounded-6 bg-black-100 px-2 py-2 lg:relative"
+          )}
+        >
           {routes
             .filter((route) => route.includeMainSidebar)
             .map((item, index) => renderMainSidebarButton(item, index))}
         </div>
 
-        <div className="z-10 flex w-fit flex-row lg:flex-col gap-2 rounded-6 bg-white-100 px-2 py-2">
+        <div className="z-10 flex w-fit flex-row gap-2 rounded-6 bg-white-100 px-2 py-2 lg:flex-col">
           {routes
             .filter((route) => route.includeSecondarySidebar)
             .map((item, index) => renderSecondaySidebarButton(item, index))}
         </div>
       </div>
-      <div className={cn(
-        "pt-20 ml-0",
-        "lg:ml-20 lg:pt-0 flex flex-grow flex-col overflow-auto"
-      )}>
+      <div
+        className={cn(
+          "ml-0 pt-20",
+          "flex flex-grow flex-col overflow-auto lg:ml-20 lg:pt-0"
+        )}
+      >
         {children}
       </div>
     </div>
