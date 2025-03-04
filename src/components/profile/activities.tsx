@@ -1,5 +1,5 @@
 // import { Select } from "@/components/select"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 import SearchInput from "@/components/searchInput"
@@ -17,6 +17,29 @@ interface ActivitiesProps {
 
 export function Activities({ sortOrder, onSortChange }: ActivitiesProps) {
   const [searchQuery, setSearchQuery] = useState("")
+  const [showShadow, setShowShadow] = useState(false)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  // Handle scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollContainerRef.current) {
+        const scrollTop = scrollContainerRef.current.scrollTop
+        setShowShadow(scrollTop > 0)
+      }
+    }
+
+    const scrollContainer = scrollContainerRef.current
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll)
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("scroll", handleScroll)
+      }
+    }
+  }, [])
 
   const activities = [
     {
@@ -87,7 +110,7 @@ export function Activities({ sortOrder, onSortChange }: ActivitiesProps) {
   })
 
   return (
-    <div className="flex h-full w-2/3 flex-col bg-white rounded-3 p-4">
+    <div className="flex h-full w-2/3 flex-col rounded-3 bg-white p-4">
       {/* Fixed Header */}
       <div className="mb-4 flex items-center justify-between">
         <h2 className={fontHeadline}>Activities</h2>
@@ -116,17 +139,28 @@ export function Activities({ sortOrder, onSortChange }: ActivitiesProps) {
         </div>
       </div>
 
-      {/* Table Container - Takes remaining height */}
+      {/* Table Container */}
       <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
         {/* Fixed Table Header */}
-        <div className="flex bg-[var(--black-background-5)] px-[var(--spacing-4)] py-[var(--spacing-2)] text-sm text-[var(--text-black-60)] rounded-full">
+        <div
+          className={cn(
+            "sticky top-0 z-10 flex rounded-t-3 bg-[var(--black-background-5)] px-[var(--spacing-4)] py-[var(--spacing-2)] mb-1 text-sm text-[var(--text-black-60)]"
+          )}
+        >
           <div className="flex-1">Description</div>
           <div className="ml-auto w-[100px]">Date</div>
           <div className="w-[80px]">Time</div>
         </div>
 
         {/* Scrollable Activities List */}
-        <div className="flex-1 overflow-y-auto">
+        <div
+          ref={scrollContainerRef}
+          className={cn(
+            "flex-1 overflow-y-auto rounded-t-3",
+            showShadow && "shadow-[inset_0_4px_30px_rgba(0,0,0,0.09)]",
+            "transition-shadow duration-200"
+          )}
+        >
           {filteredActivities.map((activity, index) => (
             <div
               key={`${activity.id}-${activity.time}`}

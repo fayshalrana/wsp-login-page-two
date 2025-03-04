@@ -1,8 +1,14 @@
+import { useState } from "react"
 import { Edit2, LogOut } from "lucide-react"
-import { fontTitle1 } from "@/styles/typography"
+
 import { MainButton } from "@/components/mainButton"
+import { fontTitle1 } from "@/styles/typography"
+
+import { EditProfileDialog } from "./edit-profile-dialog"
 
 export function ProfileHeader() {
+  const [isEditProfileOpen, setIsEditProfileOpen] = useState(false)
+
   return (
     <div className="flex items-center justify-between">
       <h1 className={fontTitle1}>Profile</h1>
@@ -10,8 +16,8 @@ export function ProfileHeader() {
       <div className="flex items-center gap-3">
         <MainButton
           variant="secondary"
-          onClick={() => {}}
-          className="p-4 flex gap-1 bg-transparent border-2 border-black-10 outline-transparent hover:outline-transparent hover:shadow-none text-[14px] font-bold leading-[16px]"
+          onClick={() => setIsEditProfileOpen(true)}
+          className="flex gap-1 border-2 border-black-10 bg-transparent p-4 text-[14px] font-bold leading-[16px] outline-transparent hover:shadow-none hover:outline-transparent"
         >
           <Edit2 size={16} />
           Edit Profile
@@ -20,11 +26,16 @@ export function ProfileHeader() {
         <MainButton
           variant="secondary"
           onClick={() => {}}
-          className="h-12 w-12 p-1 bg-transparent border-2 border-black-10 hover:outline-transparent hover:shadow-none"
+          className="h-12 w-12 border-2 border-black-10 bg-transparent p-1 hover:shadow-none hover:outline-transparent"
         >
           <LogOut size={16} />
         </MainButton>
       </div>
+
+      <EditProfileDialog
+        isOpen={isEditProfileOpen}
+        onOpenChange={setIsEditProfileOpen}
+      />
     </div>
   )
 }

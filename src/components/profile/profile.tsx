@@ -12,7 +12,7 @@ export function ProfileScreen() {
   const [defaultPage, setDefaultPage] = useState("kitchen-display")
 
   return (
-    <div className="flex h-screen flex-col gap-4 overflow-hidden p-[var(--spacing-4)]">
+    <div className="flex h-screen flex-col gap-6 overflow-hidden pt-[28px] px-[var(--spacing-4)] pb-[var(--spacing-4)]">
       <ProfileHeader />
 
       <div className="flex min-h-0 flex-1 flex-col gap-4">

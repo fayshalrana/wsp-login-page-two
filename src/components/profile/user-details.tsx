@@ -1,13 +1,13 @@
 import Image from "next/image"
 import { Mail, Settings, UserCircle } from "lucide-react"
 
-import { fontBodyBold, fontBodyNormal } from "@/styles/typography"
+import { fontHeadline, fontBodyNormal } from "@/styles/typography"
 
 export function UserDetails() {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 lg:flex-row flex-col">
       {/* Profile Card */}
-      <div className="flex w-2/3 items-center gap-2">
+      <div className="flex w-full lg:w-2/3 items-center gap-2">
         <div className="flex flex-1 items-center gap-4 rounded-3 bg-black-5 p-4">
           <div className="relative h-[60px] w-[60px] overflow-hidden">
             <Image
@@ -19,7 +19,7 @@ export function UserDetails() {
           </div>
 
           <div className="flex flex-col">
-            <h2 className={`${fontBodyBold} text-text-black-100`}>
+            <h2 className={`${fontHeadline} text-text-black-100`}>
               Sarah Hermant
             </h2>
           </div>
@@ -45,7 +45,7 @@ export function UserDetails() {
       </div>
 
       {/* Join at & Role Card */}
-      <div className="flex w-1/3 items-start justify-center gap-2">
+      <div className="flex w-full lg:w-1/3 items-start justify-center gap-2">
         <div className="flex flex-1 flex-col gap-4 rounded-3 bg-black-5 p-4">
           <div className="flex items-center gap-1">
             <UserCircle size={20} className="text-black-60" />
