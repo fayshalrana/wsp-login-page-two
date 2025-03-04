@@ -1,0 +1,74 @@
+AI Prompt for Profile Page UI (Next.js + Tailwind CSS)
+
+## @profile.tsx (Profile Page Structure)
+Header (@profile-header.tsx)
+Left: "Profile" title.
+Right (Flex - Buttons Aligned Right)
+"Edit Profile" button (rounded, with an edit icon on the left).
+"Log Out" button (with a logout icon).
+Use MainButton from components/buttons.
+Spacing & Alignment: Buttons are aligned to the right.
+
+### @profile-body.tsx (Main Profile Content)
+Profile Details Section
+Two Containers (flex)
+Left (Width: 682px)
+Profile Picture (Circular).
+Email Address (text-gray-600, icon on left).
+Right (Width: 169px, Flex-Column, Center-Aligned)
+Join Date (Mon, 17 Jun 2023, small text, gray).
+Role (Staff, small text, gray).
+Typography:
+Labels (Email, Join at, Role) are font-size: 13px, font-weight: 400 (from typography).
+
+## @activities.tsx (User Activity Data Table)
+Scrollable Table (inside container, should NOT scroll the entire page).
+Header: "Activities" with a Sort By dropdown (top-right).
+Sorting Dropdown (@select.tsx)
+Styled dropdown with two options:
+"Newest First" (selected by default).
+"Oldest First".
+Uses the CustomSelect component from components/form.
+Table Structure:
+Left Column: Summary Activity Text (#202 order, "mushroom burger" was "accepted".).
+Right Column: Date & Time (Gray, smaller font).
+Alternating Row Colors for Better Readability.
+
+## @settings.tsx (Settings Component)
+Default Page After Login Section
+Custom Select for Page Selection.
+"Set as Default" button:
+Disabled unless an option is selected.
+Hover Effect: Gray background changes to black when enabled.
+Uses MainButton from components/buttons.
+Password & Security Section
+Two Password Input Fields:
+"Current Password"
+"New Password"
+"Change Password" Button:
+Disabled unless both fields are filled.
+Background: Gray when disabled, black when enabled.
+Spacing & Width: 169px, matching Join Date & Role section.
+
+## @editProfileModal.tsx (Edit Profile Modal)
+Triggered When Clicking "Edit Profile"
+Centered Modal with Blur Overlay.
+Header (Edit Profile title + Close Button).
+User Details Form:
+Profile Picture with "Change Photo" button.
+Input Fields:
+First Name
+Last Name
+Username
+Email Address
+"Save Changes" Button:
+Disabled until changes are made.
+Black background when enabled.
+Smooth Open/Close Animation.
+
+## Improvements Based on Image Analysis
+Typography Consistency: Use font-size: 13px for labels & text.
+Spacing & Layout: Keep right-side sections (Default Page After Login, Password & Security) aligned with Profile Details width.
+Dropdown (Sort By) Position: Right-aligned with "Activities" header.
+Table Styling: Improve readability with alternating row colors.
+Button States: Implement hover & active styles for buttons (Set as Default, Change Password).
