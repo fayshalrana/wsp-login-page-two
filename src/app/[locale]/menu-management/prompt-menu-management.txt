@@ -1,0 +1,90 @@
+Prompt: Convert this UI into a Next.js & Tailwind CSS Component-Based Layout
+Create a fully functional "Menu Management" dashboard inspired by the provided UI design. The interface should be built using React (Next.js) with Tailwind CSS and should be fully responsive.
+Layout Breakdown
+
+Header Section (Top Navigation)
+Left: The page title "Menu Management" is aligned to the left in bold typography.
+Center: A radio button group allows users to toggle between different service types:
+All Services (selected by default)
+Dine-in
+Delivery
+Pickup
+Each option has a rounded badge on the top-right indicating the number of items in each category.
+Right: A search input field (fully aligned to the right) with a magnifying glass (🔍) icon for filtering menu items.
+Update @categoryHeader.tsx
+
+The toggle switch should be placed on the right side.
+Next to it, display "Active" or "Inactive" text.
+Font sizes:
+Right side text: font-size: 13px; (use typography settings).
+Left small text (item count): font-size: 13px; font-weight: 400.
+Category Tabs
+Three tab items:
+Breakfast
+Lunch
+Dinner
+
+Each tab has a radio button selector to indicate the active selection.
+The selected tab has a darker background and rounded edges.
+
+Update @categoryTabs.tsx
+Add a minimal overlay on the right side of the scrollable menu.
+Category tabs should match the image exactly:
+Default state:
+Background: white
+Text: black
+Badge: Fully rounded, white background, black text
+Box shadow: sm
+Selected state:
+Background: black
+Text: white
+No box shadow.
+
+When a tab is selected, show its corresponding menu items:
+Selecting Breakfast displays the Breakfast menu.
+Selecting Lunch displays the Lunch menu.
+Selecting Dinner displays the Dinner menu.
+
+Category Header ("Burgers" Section)
+Left:
+A large category title: "Whole “Burgers” Category", styled in bold.
+To the right of this text, a small subtext displays the number of items in the category (e.g., "12 items").
+Right:
+A toggle switch labeled "Active", which enables or disables all menu items in the category.
+The switch is green when active and gray when inactive.
+
+Menu Item Cards (Grid Layout)
+Each menu item card includes:
+
+A product title: "Double Cheese" (styled in bold).
+A subtitle (Price): "$22.50" (styled in slightly lighter text).
+A toggle switch at the bottom with:
+Green color and "Active" label when enabled.
+Gray color and "Inactive" label when disabled.
+The cards are arranged in a grid layout, ensuring responsiveness on different screen sizes.
+
+Functional Requirements
+Interactivity
+
+Clicking on any radio button updates the UI to reflect the selected filter (e.g., changing between All Services, Dine-in, Delivery, Pickup).
+Selecting Breakfast, Lunch, or Dinner updates the displayed menu items.
+Category Toggle Behavior
+
+The "Active" switch in the category header enables/disables all menu items in that category.
+Individual Item Toggle
+
+Each menu item has its own toggle switch, allowing items to be activated or deactivated independently.
+Search Functionality
+
+The search input allows filtering menu items dynamically as the user types.
+Responsiveness
+
+The layout should be fully responsive, adapting to mobile, tablet, and desktop screens.
+On smaller screens, the menu cards should stack in a single column, while on larger screens, they should form a grid layout.
+
+Technology Stack
+Frontend: Next.js (React.js)
+Styling: Tailwind CSS
+State Management: React hooks (useState)
+Components: Custom-built, following accessibility guidelines
+Icons: Lucide-react
