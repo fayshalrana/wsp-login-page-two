@@ -24,7 +24,7 @@ export default function LoginForm() {
     <div className="flex w-full items-center justify-center px-[var(--spacing-4)]">
       <div className="w-full max-w-[360px] space-y-[var(--spacing-4)]">
         <div className="text-center">
-          <h2 className={`${fontTitle1} text-[var(--text-black-100)]`}>
+          <h2 className={`md:text-[32px] ${fontTitle1} text-[var(--text-black-100)]`}>
             Welcome Back
           </h2>
           <p
@@ -47,7 +47,7 @@ export default function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email address"
-                className="w-full bg-[var(--white-background-100)] px-[var(--spacing-4)] py-3 text-[var(--text-black-100)] placeholder:text-[var(--text-black-40)] focus:bg-[var(--white-background-100)]"
+                className="w-full bg-[var(--white-background-100)] px-[var(--spacing-4)] py-3 text-[var(--text-black-100)] placeholder:text-[var(--text-black-40)] focus:bg-[var(--white-background-100)] border border-[var(--border-black-10)]"
                 style={{ borderRadius: "var(--round-6)" }}
                 required
               />
@@ -65,7 +65,7 @@ export default function LoginForm() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
-                  className="w-full bg-[var(--white-background-100)] px-[var(--spacing-4)] py-3 text-[var(--text-black-100)] placeholder:text-[var(--text-black-40)] focus:bg-[var(--white-background-100)]"
+                  className="w-full bg-[var(--white-background-100)] px-[var(--spacing-4)] py-3 text-[var(--text-black-100)] placeholder:text-[var(--text-black-40)] focus:bg-[var(--white-background-100)] border border-[var(--border-black-10)]"
                   style={{ borderRadius: "var(--round-6)" }}
                   required
                 />

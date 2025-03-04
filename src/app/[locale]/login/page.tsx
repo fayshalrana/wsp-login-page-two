@@ -18,7 +18,7 @@ export default function Login() {
           <Image
             src={logo}
             alt="Orderific Logo"
-            width={140}
+            width={165}
             height={28}
             className="object-contain"
           />

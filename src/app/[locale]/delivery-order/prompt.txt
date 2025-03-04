@@ -1,0 +1,71 @@
+"Create a structured layout for a delivery order document based on the following description. Ensure the layout is clear, organized, and easy to follow. Use appropriate headings, labels, and formatting to enhance readability.
+
+Header Section:
+
+Display 'Delivery Order' prominently at the top.
+
+Include 'Edit Order' and 'Cancel Order' options near the header, likely as buttons or links.
+
+User Information:
+
+Present user details in a list or tabular format with labels on the left and corresponding information on the right.
+
+Include fields for:
+
+User Name
+
+Order Number
+
+Status
+
+Date & Time
+
+Phone Number
+
+Email Address
+
+Address and Delivery Instructions:
+
+Display the delivery address in a single block, possibly with a map icon or link.
+
+Include specific delivery instructions below the address.
+
+Items Summary:
+
+Use a tabular format with columns for:
+
+Item Name
+
+Quantity (QTY)
+
+Price
+
+Total Price
+
+List each item with customization details (e.g., size, cheese, salt) below the item name.
+
+Pricing Details:
+
+Present pricing information in a vertical list format with labels on the left and values on the right.
+
+Include:
+
+Total Price
+
+Discount
+
+Subtotal
+
+Taxable Amount
+
+Tax (VAT 3%)
+
+Grand Total
+
+Footer Section:
+
+Include a 'Pay Bill' button or link, centrally located or aligned to the right.
+
+Add 'KOTs', 'Kitchen', and 'Bar' at the very bottom to indicate sections or departments involved in order processing.
+
+Ensure the layout guides the reader from top to bottom, starting with general order information, moving through specific details, and ending with payment and processing information. Use clear headings, labels, and a structured format to enhance readability and ensure all necessary information is easily accessible."
