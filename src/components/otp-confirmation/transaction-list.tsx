@@ -14,21 +14,30 @@ const transactions = [
     name: "Nasser Alsubai",
     date: "9 Feb 2024",
     time: "10:24",
-    avatar: avatar,
+    avatar: "/rider-otp-img.svg",
+    amount: "$86.60",
+    otpCode: "674951",
+    userId: "29857805",
   },
   {
     id: 2,
     name: "Nguyen, Shane",
     date: "9 Feb 2024",
     time: "10:20",
-    avatar: avatar,
+    avatar: "/rider-otp-img.svg",
+    amount: "$92.30",
+    otpCode: "123456",
+    userId: "29857806",
   },
   {
     id: 3,
     name: "Flores, Juanita",
     date: "9 Feb 2024",
     time: "10:04",
-    initial: "S",
+    avatar: "/rider-otp-img.svg",
+    amount: "$45.80",
+    otpCode: "789012",
+    userId: "29857807",
   },
   {
     id: 4,
@@ -82,19 +91,30 @@ const transactions = [
 ]
 
 interface TransactionListProps {
-  selectedId: number
+  selectedId: number | null
   onSelect: (id: number) => void
+  transactions: Array<{
+    id: number
+    name: string
+    date: string
+    time: string
+    avatar: string
+    amount: string
+    otpCode: string
+    userId: string
+  }>
 }
 
 export function TransactionList({
   selectedId,
   onSelect,
+  transactions,
 }: TransactionListProps) {
   return (
     <div className="flex h-full flex-col bg-transparent">
       {/* Header - Fixed */}
-      <div className="pt-[var(--spacing-2)] pb-[var(--spacing-4)]">
-        <div className="flex items-center justify-between gap-2 pt-[var(--spacing-3)] px-[var(--spacing-4)]">
+      <div className="pb-[var(--spacing-4)] pt-[var(--spacing-2)]">
+        <div className="flex items-center justify-between gap-2 px-[var(--spacing-4)] pt-[var(--spacing-3)]">
           <div className="flex items-center gap-2">
             <h1 className={cn(fontHeadline, "text-[var(--text-black-100)]")}>
               Pending
@@ -128,7 +148,7 @@ export function TransactionList({
               <div className="h-10 w-10">
                 <div className="h-full w-full overflow-hidden rounded-full bg-[var(--black-background-10)]">
                   <img
-                    src="/rider-otp-img.svg"
+                    src={transaction.avatar}
                     alt={transaction.name}
                     className="h-full w-full object-cover"
                   />
@@ -180,7 +200,7 @@ export function TransactionList({
                       "text-[var(--text-black-60)]"
                     )}
                   >
-                    674951
+                    {transaction.otpCode}
                   </span>
                 </div>
               )}

@@ -1,0 +1,47 @@
+Create a Next.js interface using TypeScript and Tailwind CSS based on the provided image content. Break down the interface into reusable components. Each section of the image should be a separate component. Use Tailwind CSS for styling and ensure the components are typed correctly using TypeScript.
+
+OTPConfirmation Component:
+Display the "OTP Confirmation" heading.
+Show the status as "Pending".
+Style the heading and status appropriately using Tailwind CSS.
+
+ClassInfo Component:
+Display the class information including the names and dates.
+Ensure the names and dates are styled clearly.
+
+OTPCodeComponent:
+Display the OTP code entry confirmation message.
+Include a button labeled "Accept Cash Transfer".
+Style the button and message appropriately.
+When hovering over the "Accept" button, the background should turn black; otherwise, it should be gray.
+
+AmountComponent:
+Display the amount to be received.
+Ensure the amount is prominently displayed.
+TransactionDetails Component:
+List the transaction details including names, dates, and times.
+Ensure each entry is clearly separated and styled.
+
+ConfirmationPanel Component:
+Include a close button positioned 16px from the left and 30px from the top with underlined text "close".
+The confirmation panel should not be shown by default. It should only appear when a rider is selected.
+When no rider is selected, display "Select a rider to see info".
+Add padding of 105px on the y-axis and 80px on the x-axis.
+
+TransactionList Component:
+Hide the scroll bar.
+Only the first item should have a left number with a red dot.
+The first item should be selected by default.
+When another item is selected, only show "Select a rider to see info" unless a rider is selected.
+The red dot should be on the left side of the right-side number of items, but only for the first item.
+
+MainLayout Component:
+Combine all the above components into a main layout.
+Ensure the layout is responsive and visually appealing.
+Include a close button as shown in the screenshot.
+
+Additional Instructions:
+Ensure each component is typed correctly using TypeScript.
+Use Tailwind CSS utility classes for styling.
+Make the layout responsive and ensure it looks good on different screen sizes.
+Test the components to ensure they display the correct information and are interactive where necessary.
