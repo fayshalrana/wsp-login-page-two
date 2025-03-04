@@ -1,6 +1,7 @@
 import * as React from "react"
 import Image from "next/image"
 import { useAuth } from "@/providers/AuthProvider/AuthProvider"
+import userImg from "../../public/User.svg"
 
 import { cn } from "@/lib/utils"
 import { fontHeadline } from "@/styles/typography"
@@ -37,12 +38,25 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({
       ) : (
         <div
           className={cn(
-            "flex h-6 w-6 items-center justify-center rounded-full text-sm",
+            "flex w-full h-full items-center justify-center rounded-full text-sm",
             fontHeadline,
             isActive ? "text-white-100" : "text-black-100"
           )}
         >
-          {user?.user_information.first_name?.[0]?.toUpperCase() || "?"}
+         {user?.user_information.first_name
+  ? user.user_information.first_name[0]?.toUpperCase()
+  : (
+    <Image
+    src={userImg}
+    alt="Profile"
+    width={48}
+    height={48}
+    className="h-full w-full rounded-full object-cover"
+  />
+
+  )
+}
+
         </div>
       )}
     </button>
