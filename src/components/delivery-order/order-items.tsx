@@ -43,7 +43,7 @@ export function OrderItems() {
   return (
     <div className="flex gap-4">
       {/* Items List - Left Side */}
-      <div className="flex-1">
+      {/* <div className="flex-1">
         <div className="mb-2 grid grid-cols-[1fr_80px_80px_80px_40px] gap-4 px-4 py-2 text-sm text-black-60">
           <div>Items Summary</div>
           <div className="text-center">QTY</div>
@@ -81,10 +81,10 @@ export function OrderItems() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Summary - Right Side */}
-      <OrderSummary />
+      {/* <OrderSummary /> */}
     </div>
   )
 } 
