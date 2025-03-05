@@ -38,7 +38,7 @@ export function OrderSummary() {
       </div>
 
       <div className="mt-3 flex items-center gap-2">
-        <button className="rounded-full bg-black-5 p-2 hover:bg-black-10">
+        <button className="rounded-full h-12 w-12 border border-black-10 bg-black-5 p-2 hover:bg-black-10">
           <Printer size={20} className="text-black-60" />
         </button>
         <MainButton

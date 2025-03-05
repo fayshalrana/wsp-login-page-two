@@ -7,12 +7,12 @@ import IconWrapper from "@/components/iconWrapper"
 import { fontButtonLarge } from "@/styles/typography"
 
 const buttonVariants = cva(
-  `inline-flex items-center justify-center rounded-6 transition-colors hover:outline-black-10 hover:outline hover:outline-4 disabled:bg-black-5 disabled:text-black-40 disabled:outline-none px-8 h-[48px] w-fit ${fontButtonLarge}`,
+  `inline-flex items-center justify-center rounded-6 transition-colors disabled:bg-black-5 disabled:text-black-40 disabled:outline-none px-8 h-[48px] w-fit ${fontButtonLarge}`,
   {
     variants: {
       variant: {
         primary: "bg-black-100 text-white-100",
-        secondary: "bg-black-10 text-black-100 hover:outline-black-20",
+        secondary: "bg-black-10 text-black-100 hover:bg-black-100 hover:text-white-100",
         accept: "bg-status-accepted text-white-100",
         ready: "bg-status-ready text-white-100",
         served: "bg-status-served text-white-100",

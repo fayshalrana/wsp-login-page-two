@@ -66,7 +66,7 @@ const menuItems: MenuItem[] = [
 
 export function OrderSummary() {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-2">
       {/* Items Table */}
       <div className="flex-1 rounded-3 bg-white p-4">
         {/* Table Header */}
@@ -118,7 +118,7 @@ export function OrderSummary() {
       </div>
 
       {/* Summary Section */}
-      <div className="w-1/3 flex-none rounded-3 bg-[#FFF5F5] p-4 lg:w-1/4">
+      <div className="w-1/3 flex-none rounded-3 bg-white p-4">
         {/* Summary Details */}
         <div className="space-y-2">
           <div className="flex justify-between">
