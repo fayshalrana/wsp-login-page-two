@@ -67,8 +67,7 @@ export function OrderSidebar() {
               selectedOrderId === order.id
                 ? "border-r-[3px] border-r-orange-500 bg-black-5"
                 : ""
-            }`}
-          >
+            }`}>
             {/* User Icon */}
             <div className="relative">
               <div
