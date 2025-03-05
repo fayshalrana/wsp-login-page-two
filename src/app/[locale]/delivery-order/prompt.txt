@@ -1,71 +1,74 @@
-"Create a structured layout for a delivery order document based on the following description. Ensure the layout is clear, organized, and easy to follow. Use appropriate headings, labels, and formatting to enhance readability.
+Prompt for Cursor AI Code Editor:
 
-Header Section:
+"Create a React-based delivery order interface with the following components and functionality. Ensure the design and functionality match the attached image reference. Use modern React practices, Tailwind CSS for styling, and ensure the components are reusable and well-structured.
 
-Display 'Delivery Order' prominently at the top.
+1. Table for Items (QTY, Price, Total Price, Discount):
+Use an array of objects to represent the items and map through them to render the table.
 
-Include 'Edit Order' and 'Cancel Order' options near the header, likely as buttons or links.
+Columns: QTY, Price, Total Price, Discount.
 
-User Information:
+Discount Column:
 
-Present user details in a list or tabular format with labels on the left and corresponding information on the right.
+Add a plus button with a rounded-full border (size: h-32px, w-32px).
 
-Include fields for:
+On click, the button should add a discount number (like the last one) and show an edit icon.
 
-User Name
+The edit icon should allow editing the discount value.
 
-Order Number
+2. Order Header Component (@order-header.tsx):
+Create two buttons: Edit Order and Cancel Order.
 
-Status
+Use a shared Button component with the following styles:
 
-Date & Time
+Default: bg-transparent, text-black, border-black, border-width: 1px.
 
-Phone Number
+On Hover: bg-black, text-white.
 
-Email Address
+Ensure the buttons match the design in the attached image.
 
-Address and Delivery Instructions:
+3. Order Details Component (@order-details.tsx):
+Add icons for each section as shown in the attached image.
 
-Display the delivery address in a single block, possibly with a map icon or link.
+Use text-black/60 for text color to achieve 60% opacity.
 
-Include specific delivery instructions below the address.
+Add a Paid Tag next to the order number box, styled as in the image.
 
-Items Summary:
+4. Order Summary Component (@order-summary.tsx):
+Fix the Subtotal Box to match the attached image.
 
-Use a tabular format with columns for:
+Place the Discount Button below the Grand Total.
 
-Item Name
+Add a Print Icon Button and Pay Bill Button horizontally aligned.
 
-Quantity (QTY)
+Include an hr line below the buttons.
 
-Price
+Add Kitchen and Bar icons on their respective buttons, styled as in the image.
 
-Total Price
+5. General Requirements:
+Use Tailwind CSS for all styling.
 
-List each item with customization details (e.g., size, cheese, salt) below the item name.
+Ensure the layout is responsive and matches the attached image.
 
-Pricing Details:
+Use reusable components where possible (e.g., Button, Icon, Tag).
 
-Present pricing information in a vertical list format with labels on the left and values on the right.
+Add appropriate hover and click effects for interactivity.
 
-Include:
+6. Code Structure:
+Use functional components and React hooks (e.g., useState for managing discount values).
 
-Total Price
+Organize the code into separate files:
 
-Discount
+@order-header.tsx
 
-Subtotal
+@order-details.tsx
 
-Taxable Amount
+@order-summary.tsx
 
-Tax (VAT 3%)
+Use TypeScript for type safety if applicable.
 
-Grand Total
+7. Expected Output:
+A fully functional delivery order interface with interactive buttons, icons, and a responsive layout.
 
-Footer Section:
+The table should dynamically update discounts when the plus button is clicked.
 
-Include a 'Pay Bill' button or link, centrally located or aligned to the right.
-
-Add 'KOTs', 'Kitchen', and 'Bar' at the very bottom to indicate sections or departments involved in order processing.
-
-Ensure the layout guides the reader from top to bottom, starting with general order information, moving through specific details, and ending with payment and processing information. Use clear headings, labels, and a structured format to enhance readability and ensure all necessary information is easily accessible."
+All buttons and icons should match the design in the attached image.
