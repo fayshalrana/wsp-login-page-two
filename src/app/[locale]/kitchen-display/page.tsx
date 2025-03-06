@@ -11,8 +11,8 @@ export default function KitchenDisplayPage() {
   const [searchQuery, setSearchQuery] = useState("")
 
   return (
-    <div className="flex h-screen flex-col">
-      <div className="bg">
+    <div className="flex h-screen flex-col bg-[#F7F7F7]">
+      <div className="bg-white">
         <div className="px-4">
           <KitchenDisplayHeader
             selectedStatus={selectedStatus}
