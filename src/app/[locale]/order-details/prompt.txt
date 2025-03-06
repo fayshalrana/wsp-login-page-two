@@ -1,0 +1,110 @@
+Prompt for Cursor AI Code Editor:
+"Create a order details interface with a sidebar and main content layout based on the following detailed description and image. Use modern React practices, Tailwind CSS for styling, and ensure the components are reusable and well-structured. Match the design and functionality of the attached image.
+
+1. Sidebar (Left Section):
+Display Table A10 prominently at the top.
+
+Include a Create New Order button to initiate a new order.
+
+Active Orders List:
+
+Display a list of active orders with their details:
+
+Customer Name.
+
+Order Number or device identifier (e.g., iPad #203).
+
+Status (e.g., Ready, Served, Ordered, Accepted).
+
+Time Elapsed since the last action.
+
+Use a vertical list layout with clear spacing and status highlights.
+
+2. Main Content Area (Right Section):
+Order Details:
+
+Display detailed information for the selected order:
+
+User Name.
+
+Order Number.
+
+Status.
+
+Date & Time.
+
+Use a clean, labeled layout for readability.
+
+Items Summary Table:
+
+Create a table with the following columns:
+
+Items Summary.
+
+OTY (Quantity).
+
+Price.
+
+Total Price.
+
+Discount.
+
+Include a + button in the Discount column for each item:
+
+On click, add a discount and display an edit icon.
+
+Allow editing of the discount value.
+
+List customization details below relevant items (e.g., "Size: Small, Cheese: A little bit, Salt: No").
+
+Pricing Summary:
+
+Display the following financial details in a vertical list:
+
+Subtotal.
+
+Order Discount.
+
+Taxable Amount.
+
+Tax (VAT 3%).
+
+Grand Total.
+
++ DISC% (additional discount options).
+
+Total.
+
+Action Buttons:
+
+Include the following buttons at the bottom:
+
+Pay Bill: To finalize payment.
+
+KOTs: For Kitchen Order Tickets.
+
+Kitchen and Bar: To assign orders to specific departments.
+
+Merge Orders: To combine multiple orders.
+
+Style buttons with hover effects (e.g., bg-black, text-white on hover).
+
+3. General Requirements:
+Use Tailwind CSS for styling.
+
+Ensure the layout is responsive and matches the attached image.
+
+Use reusable components (e.g., Button, Table, Tag).
+
+Add hover and click effects for interactive elements.
+
+4. Expected Output:
+A fully functional restaurant order management interface with:
+
+A sidebar for active orders.
+
+A main content area for order details, items summary, pricing, and actions.
+
+The table should dynamically update discounts when the "+" button is clicked.
+
+All buttons and icons should match the design in the attached image.

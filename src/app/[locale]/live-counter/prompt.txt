@@ -1,0 +1,129 @@
+Generate a NextJs component for a Live Counter dashboard that displays tables with status information. The main structure includes:
+
+1. Page Structure Updates (page.tsx)
+Use @header.tsx as the page header.
+Add a sticky button at the bottom-right corner of the page with a plus (+) icon.
+The button should be styled exactly like in the attached image.
+Ensure the layout matches the attached design, including spacing, alignment, and responsiveness.
+
+2. Header Enhancements (header.tsx)
+Search Input Behavior:
+When the search input expands, ensure that the service option does not shift position.
+Maintain the original alignment of elements even when the search bar is active.
+Apply styles based on attached image design.
+
+3. Filter Section (filter-section.tsx)
+Place the filter section directly below the header as seen in the attached image.
+Left Side:
+Add tabs for filtering: All Table, River Side, Main Hall, Terrace.
+Style and positioning should match the attached image.
+Right Side:
+Add the following components:
+Select Component (@select.tsx)
+Search Component (@searchInput.tsx)
+Grid View & Small View Toggle Buttons
+Ensure the dropdown menu is styled correctly according to the attached design on smaller screens (below lg).
+Fix the select component issue:
+If the selected item length is less than 165px, the width should not shrink below this limit.
+
+4. Table Display Logic (live-counter-content.tsx & filter-section.tsx)
+Random Table Data:
+Add 20 more tables with randomly assigned statuses:
+Ordered
+Ready
+Free
+Table Display Based on Grid View Toggle:
+If Grid View is true → Display full table details as shown in the attached image.
+If Grid View is false → Show only the table number (A1, A2, ...).
+Hide other information.
+Grid Layout:
+Use @table-grid.tsx to manage table display with display: flex; flex-wrap: wrap;.
+
+5. Scroll Behavior (filter-section.tsx & live-counter-content.tsx)
+When scrolling the tables section or live counter, apply:
+Box shadow on the header when scrolling down.
+Remove shadow when the scroll position is 0.
+
+6. Table Card Enhancements (live-counter-content.tsx)
+Table Header Format:
+Use Title 2 from @typography.ts.
+Table titles should follow this format:
+A1, A2, A3, … instead of numbers like Table 1, Table 2, ….
+Icons & Number Placement:
+Top-right corner: Show the table number first, followed by a user icon.
+Bottom-right corner: Display a slip icon (lab_profile.svg from the public folder).
+
+Ensure all styles and layouts strictly follow the attached image.
+Maintain proper color and typography from @globals.css.
+Use consistent spacing, padding, and alignment based on the design reference.
+
+
+## second prompt ## //updates
+
+AI Prompt for Live Counter Enhancements (Follow Attached Image for Design & Use Global Styles)
+
+1. Page Structure Updates (page.tsx)
+Use @header.tsx as the page header.
+Add a sticky button at the bottom-right corner of the page with a plus (+) icon.
+The button should be styled exactly like in the attached image.
+Use colors, border-radius, background, and shadows from globals.css.
+Ensure the layout strictly follows the attached image design, including spacing, alignment, and responsiveness.
+
+2. Header Enhancements (header.tsx)
+Search Input Behavior:
+When the search input expands, ensure that the service option does not shift position.
+Maintain the original alignment of elements even when the search bar is active.
+Use typography from typography.ts for text sizes and weights.
+Apply all colors, spacing, border styles, and shadows from globals.css to match the attached image design.
+
+3. Filter Section (filter-section.tsx)
+Place the filter section directly below the header, as seen in the attached image.
+Left Side:
+Add tabs for filtering: All Table, River Side, Main Hall, Terrace.
+Style and positioning should match the attached image.
+Use typography.ts for tab text styles and colors from globals.css.
+Right Side:
+Add the following components:
+Select Component (@select.tsx)
+Search Component (@searchInput.tsx)
+Grid View & Small View Toggle Buttons
+Ensure the dropdown menu is styled correctly according to the attached design on smaller screens (below lg).
+Fix the select component issue:
+If the selected item length is less than 165px, the width should not shrink below this limit.
+
+4. Table Display Logic (live-counter-content.tsx & filter-section.tsx)
+Random Table Data:
+Add 20 more tables with randomly assigned statuses:
+Ordered
+Ready
+Free
+Table Display Based on Grid View Toggle:
+If Grid View is true → Display full table details as shown in the attached image.
+If Grid View is false → Show only the table number (A1, A2, ...).
+Hide other information.
+Grid Layout:
+Use @table-grid.tsx to manage table display with display: flex; flex-wrap: wrap;.
+Apply colors, borders, and spacing from globals.css.
+
+5. Scroll Behavior (filter-section.tsx & live-counter-content.tsx)
+When scrolling the tables section or live counter, apply:
+Box shadow on the header when scrolling down.
+Remove shadow when the scroll position is 0.
+Use shadows from globals.css.
+
+6. Table Card Enhancements (live-counter-content.tsx)
+Table Header Format:
+Use Title 2 from @typography.ts.
+Table titles should follow this format:
+A1, A2, A3, … instead of numbers like Table 1, Table 2, ….
+Use colors and font styles from globals.css.
+Icons & Number Placement:
+Top-right corner: Show the table number first, followed by a user icon.
+Bottom-right corner: Display a slip icon (lab_profile.svg from the public folder).
+Ensure all background colors, shadows, and border-radius match globals.css.
+
+Final Notes
+Use all colors, borders, background styles, and spacing from globals.css.
+Follow typography rules from typography.ts for font sizes, weights, and spacing.
+Ensure all styles and layouts strictly match the attached image.
+Maintain proper spacing, padding, and alignment based on the design reference.

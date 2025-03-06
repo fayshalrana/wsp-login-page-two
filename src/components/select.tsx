@@ -24,36 +24,23 @@ export interface CustomSelectProps<T> {
   menuWidth?: string
 }
 
-const CustomSelect = <T,>({
+export function CustomSelect<T>({
   options,
   sortByText,
-  menuPosition = "left",
-  smallScreenMenuPosition,
   onOptionSelect,
-  selectWidth,
   defaultValue,
-  menuWidth = "min-w-[250px]",
-}: CustomSelectProps<T>) => {
+}: CustomSelectProps<T>) {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState<{
     value: T
     label: string
   } | null>(defaultValue || null)
+  const selectRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (defaultValue) {
-      setSelectedOption(defaultValue)
-    }
-  }, [defaultValue])
-
-  const toggleDropdown = () => setIsOpen(!isOpen)
   const handleOptionClick = (option: { value: T; label: string }) => {
     setSelectedOption(option)
-    setIsOpen(false)
     onOptionSelect(option) // Invoke the callback with the selected option
   }
-
-  const selectRef = useRef<HTMLDivElement>(null)
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -71,29 +58,35 @@ const CustomSelect = <T,>({
     }
   }, [])
 
+  const truncateText = (text: string) => {
+    return text.length > 18 ? text.substring(0, 18) + "..." : text
+  }
+
   return (
-    <div
-      className={cn(
-        "relative z-50 inline-block",
-        selectWidth ? `${selectWidth}` : "w-40"
-      )}
-      ref={selectRef}
-    >
-      <div
-        className={cn(
-          "flex h-[48px] cursor-pointer items-center justify-between rounded-6 border border-black-10 bg-white-60 px-4"
-        )}
-        onClick={toggleDropdown}
+    <div className="relative z-50 inline-block lg:w-[165px]" ref={selectRef}>
+      {/* Mobile version (icon only) */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex h-12 w-12 items-center justify-center rounded-full border border-black-10 bg-white p-3 hover:bg-black/5 lg:hidden"
       >
-        <div className="flex items-center">
-          <span className="">
+        <div className="flex h-5 w-5 flex-col items-center justify-center gap-[3px]">
+          <div className="h-[2px] w-5 bg-black"></div>
+          <div className="h-[2px] w-4 bg-black"></div>
+          <div className="h-[2px] w-3 bg-black"></div>
+        </div>
+      </button>
+
+      {/* Desktop version */}
+      <div
+        className="hidden h-[48px] cursor-pointer items-center justify-between rounded-6 border border-black-10 bg-white-60 px-4 lg:flex lg:w-[165px]"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <div className="flex items-center overflow-hidden">
+          <span className="w-full">
             {selectedOption ? (
               <div className="flex flex-col">
-                <span className={cn("text-black-60", fontCaptionNormal)}>
-                  {sortByText}
-                </span>
-
-                <span className={cn("text-black-100", fontCaptionBold)}>
+                <span className="text-xs text-black-60">{sortByText}</span>
+                <span className="truncate text-sm font-medium text-black-100">
                   {selectedOption.label}
                 </span>
               </div>
@@ -104,34 +97,21 @@ const CustomSelect = <T,>({
         </div>
         <IconWrapper Component={ChevronDownIcon} size="20" />
       </div>
+
       {isOpen && (
-        <ul
-          className={cn(
-            "absolute mt-1 w-auto min-w-[250px] rounded-5 border border-black-10 bg-white-100 text-black-60",
-
-            smallScreenMenuPosition === "left"
-              ? "left-auto right-0"
-              : "left-0 right-auto",
-
-            menuPosition === "left"
-              ? "md:left-auto md:right-0"
-              : "md:left-0 md:right-auto",
-            "z-50",
-            menuWidth
-          )}
-        >
+        <ul className="absolute right-0 mt-1 w-auto rounded-5 border border-black-10 bg-white-100 py-1 text-black-60 lg:w-[165px]">
           {options.map((option) => (
             <li
-              key={option.value as React.Key} // Ensure key is valid for any type T
+              key={option.value as React.Key}
               className={cn(
-                "cursor-pointer px-4 py-3 hover:text-brand",
-                selectedOption?.value === option.value
-                  ? fontBodyBold
-                  : fontBodyNormal,
-                selectedOption?.value === option.value && "text-brand",
-                "border-b border-black-10"
+                "cursor-pointer truncate px-4 py-3 text-sm hover:bg-black-5",
+                selectedOption?.value === option.value &&
+                  "font-medium text-brand"
               )}
-              onClick={() => handleOptionClick(option)}
+              onClick={() => {
+                handleOptionClick(option)
+                setIsOpen(false)
+              }}
             >
               {option.label}
             </li>
@@ -141,5 +121,3 @@ const CustomSelect = <T,>({
     </div>
   )
 }
-
-export { CustomSelect }
