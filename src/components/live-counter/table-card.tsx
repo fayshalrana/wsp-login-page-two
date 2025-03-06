@@ -48,7 +48,7 @@ export function TableCard({ table, isGridView }: TableCardProps) {
         <div className="flex items-center gap-1">
           <span className={`${fontBodyNormal}`}>{table.occupancy}</span>
           <Image
-            src="/userIcooon.svg"
+            src="/userIcon.svg"
             alt="Receipt"
             width={15}
             height={15}
