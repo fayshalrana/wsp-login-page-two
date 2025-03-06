@@ -1,5 +1,4 @@
 import SearchInput from "@/components/searchInput"
-import { CustomSelect } from "@/components/select"
 import { fontTitle1 } from "@/styles/typography"
 
 interface HeaderProps {

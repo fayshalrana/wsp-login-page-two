@@ -1,0 +1,60 @@
+You are tasked with building a Kitchen Display page for a project, where the page will consist of multiple sections, components, and styling as specified below. Follow the instructions and use the provided design for accurate implementation. This will include the organization of files, folder structures, and usage of global CSS and typography.
+
+Folder Structure and Files:
+Folder for Kitchen Display Page: src/pages/[locale]/kitchen-display
+
+Create the following files inside this folder:
+page.tsx (Page Layout & Structure)
+header.tsx (Header Section)
+filter-section.tsx (Filter Section)
+live-counter-content.tsx (Live Counter Content)
+Folder for Components: src/components/[locale]/kitchen-display
+
+Inside this folder, create the respective components:
+Header.tsx
+FilterSection.tsx
+LiveCounterContent.tsx
+Key Points to Follow:
+Page Layout & Structure:
+
+The layout should consist of:
+Header
+Filter Section
+Live Counter Content (Order Grid)
+Use global CSS for styling (located in src/styles/global.css).
+Ensure typography matches the global settings from the global.css file.
+The page layout should be grid-based and responsive.
+Header Component:
+
+Left Side: Page Title - Display "Kitchen Display" with bold typography.
+Center: Status Filters - Two pill buttons ("Open (16)", "Completed (185)"). Active status should have a dark background, inactive status should be greyed out.
+Right Side: Search & Sorting - Include a search bar and dropdown for sorting options ("Sort by: Newest First").
+Filter Section Component:
+
+Left Side: Tabs for categories such as "All Order", "Table", "Pickup", "Delivery", "Aggregators". The active tab should be highlighted in red.
+Right Side: Controls including dropdown for sorting and toggle buttons for Grid View & List View.
+Update the layout based on the provided image, including a new tab and a custom select dropdown.
+Live Counter Content Component:
+
+Display live orders in a grid layout, each order inside a card.
+Use color-coded status indicators (Green → "Accept All", Blue → "Ready All", Purple → "Serve All", Red → "Collecting Bill").
+Include order number, table number, timestamp, status button, list of items, and time-sensitive alerts.
+Apply specific icons and placement (user icon, receipt slip icon).
+Responsive Behavior:
+
+Ensure the filter section’s dropdown adjusts for smaller screens, and the grid layout wraps orders properly.
+Sidebar:
+
+Add the "Kitchen Display" page to the sidebar and make sure it fits into the layout structure accordingly.
+Status Tab & Button Styling:
+
+Ensure the select buttons are styled with padding (py-6px px-12px).
+Buttons should have rounded corners on specific sides as per the image design.
+Global CSS and Typography:
+
+Use global typography and styles defined in src/styles/global.css to ensure consistency across the project.
+
+Deliverables:
+A fully responsive Kitchen Display Page following the design provided.
+The layout should use global CSS and global typography for consistency.
+Components for Header, Filter Section, and Live Counter Content should be modular and reusable.

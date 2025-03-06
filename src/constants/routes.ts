@@ -1,7 +1,12 @@
-import {
-  Bell,
-  ChefHat,
-} from "lucide-react"
+import { LucideIcon, ChefHat } from "lucide-react"
+
+export type Route = {
+  href: string
+  icon: LucideIcon
+  includeMainSidebar: boolean
+  includeSecondarySidebar: boolean
+  hasBadge: boolean
+}
 
 export const routes: Route[] = [
   {
@@ -11,12 +16,4 @@ export const routes: Route[] = [
     includeSecondarySidebar: false,
     hasBadge: false,
   },
-]
-
-export type Route = {
-  href: string
-  icon: LucideIcon
-  includeMainSidebar: boolean
-  includeSecondarySidebar: boolean
-  hasBadge: boolean
-} 
+] 
