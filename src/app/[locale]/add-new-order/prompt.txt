@@ -1,0 +1,103 @@
+Prompt:
+
+Generate a responsive "Add New Order" page in Next.js using dummy data for categories, tables, items, menus, and user info.
+
+Project Setup:
+Create a new page: src/app/[locale]/add-new-order/page.tsx.
+Inside components/, create components/AddNewOrder/ and implement all UI elements there.
+Layout Details:
+The page is divided into two sections:
+
+Left Section (Order & Cart)
+Fixed sidebar with max-width: 315px, rounded-6, p-6, gap-8, top: 16px, left: 16px.
+Display "Add New Order" title (title1 typography, text-black-100).
+Add tab navigation (Table, Pickup, Delivery) using components/tabs.tsx, with "Table" selected by default.
+Show Table Number Button (components/mainButton, variant: secondary).
+Show Guest Info Button (components/mainButton, variant: secondary).
+Display a sticky, scrollable item list:
+Header: "Items (count)" (left), "Remove All" (right).
+Item Cards:
+Background: bg-white-100.
+Border: 1px solid var(--Border-Black-10, #0000001A).
+border-radius: 16px, padding: 12px, gap: 8px.
+Includes item name, quantity selector, and modifiers.
+Cart Footer (Fixed, Width: 315px):
+Left: "Total" (fontBodyNormal, text-black-100).
+Right: Sum of items (fontBodyBold, text-black-100).
+"Place Order" Button: components/mainButton.
+Right Section (Menu & Categories)
+Sticky Header with:
+Left: Search Input (../SearchInput).
+Center: Grid Toggle Button.
+Right: Close Icon (src/icon/CloseIcon).
+Category & Menu Section: Use components/menuSection and components/categorySection.
+Scrollable Menu Grid:
+Default: Show 5 items per row.
+On Grid Toggle, show 4 items per row.
+Each item has: name, price, "Add to Cart" button.
+If in cart, show a badge with item count.
+Additional Functionalities:
+"Table Number" input appears only when the "Table" tab is selected.
+Cart Footer appears only when items are added to the cart.
+Clicking + on a menu item adds it to the cart on the left side.
+Clicking "Table Number" opens a full-screen selection with:
+Sticky header (Select Table, CustomSelect, SearchInput).
+Grid of 11 tables per row, with selected table highlighted (bg-black-60 text-white-100).
+Clicking "Guest Info" opens a popup with form inputs (First Name, Last Name, Phone, Email) using components/input.
+Second Version (Alternative UI Approach)
+Instead of a dialog for Table Selection, use a separate full-screen page that hides the main content.
+Use liveCounterTable for table cards in small icon view.
+Show CustomSelect and SearchInput after table selection.
+Place table menu list on the left and inputs (SearchInput, CustomSelect) on the right.
+
+
+##follow up commands
+
+Prompt 2:
+
+Refine the "Add New Order" page in Next.js with the following improvements:
+
+Category & Menu Tabs
+Use @categoryTabs.tsx for Main Menu and Special Menu inside @header.tsx.
+Scrolling Behavior
+The full page should not scroll.
+Only the menu item div should be scrollable when items overflow.
+Sidebar Enhancements (@sidebar.tsx)
+Add an input for Table Number with an icon beside it.
+Clicking "Add Guest" should display a plus icon.
+"Table Number" should show a down arrow beside the text.
+Menu Item Click Behavior (@menu-item-card.tsx, @sidebar.tsx, @AddNewOrder.tsx)
+Clicking + on a menu item should add it to the sidebar like a cart.
+If the same item is added multiple times, do not create a new entry.
+Instead, increase the quantity between the plus and minus buttons.
+Clicking + or - inside the sidebar item list should update the quantity.
+If quantity reaches 0, remove the item from the sidebar.
+Cart Item UI Updates (@cart-item.tsx)
+Apply borders and styling from the attached image.
+Display size options and additional item details at the bottom.
+If an item is in the cartItem array, set:
+Left border: 3px solid orange.
+Quantity badge on the top-left corner of the "Add" button (as shown in the image).
+Header Updates (@header.tsx)
+Left Side:
+Search Button
+Grid / List Toggle Button
+Right Side:
+Close Button
+Guest Info Modal (@sidebar.tsx, @dialog.tsx)
+Clicking "Guest Info" input opens a modal.
+The modal should match the attached design:
+Top-right: Close Button
+Fields: First Name, Last Name, Phone Number, Email
+Save Button:
+Disabled if any field is empty.
+Uses MainButton from the components folder.
+Phone Number Input Design (@guest-info-dialog.tsx)
+Dropdown for Country Code:
+Includes Country Flag, Code, and Down Arrow (as per attached image).
+Should look like a single input field combined with the phone number input.
+Phone Input Fields:
+Accepts only numbers.
+Two parts:
+Country Code Dropdown
+User Input for Phone Number

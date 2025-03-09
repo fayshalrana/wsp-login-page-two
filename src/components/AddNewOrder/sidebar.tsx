@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react"
 import { PersonIcon, TableBarIcon } from "@/icons"
 import { ChevronDown, Plus, Trash2 } from "lucide-react"

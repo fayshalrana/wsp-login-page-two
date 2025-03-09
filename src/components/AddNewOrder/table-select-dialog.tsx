@@ -1,5 +1,6 @@
+'use client'
 import { useState } from "react"
-import { ChevronDown, Search, X } from "lucide-react"
+import { X } from "lucide-react"
 
 import {
   Dialog,
