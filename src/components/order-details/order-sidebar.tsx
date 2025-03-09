@@ -69,13 +69,13 @@ export function OrderSidebar() {
 
       {/* Mobile Orders List - Horizontal Scrolling */}
       <div className="flex gap-2 overflow-x-auto px-4 py-3 lg:hidden">
-        {/* Create New Order Button */}
+      {/* Create New Order Button */}
         <div className="flex flex-1 flex-col items-center rounded-3 border border-black-10 px-4 py-3">
           <button className="flex h-12 w-12 items-center justify-center rounded-full bg-black-5 hover:bg-black-10">
             <Plus size={24} className="text-black-60" />
           </button>
           <span className={`mt-1 text-center ${fontBodyBold} text-black-100`}>
-            Create New Order
+        Create New Order
           </span>
         </div>
 
@@ -174,19 +174,19 @@ export function OrderSidebar() {
                     }`}
                   />
                 </div>
-              </div>
+            </div>
 
-              {/* Order Details */}
-              <div className="flex flex-1 items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className={fontBodyNormal}>{order.name}</span>
+            {/* Order Details */}
+            <div className="flex flex-1 items-center justify-between">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className={fontBodyNormal}>{order.name}</span>
                     {(order.status === "Paid" || order.status === "Ready") && (
-                      <span className="rounded-full bg-[#CFEAD1] px-2 py-0.5 text-xs text-[#15803D]">
-                        Paid
-                      </span>
-                    )}
-                  </div>
+                    <span className="rounded-full bg-[#CFEAD1] px-2 py-0.5 text-xs text-[#15803D]">
+                      Paid
+                    </span>
+                  )}
+                </div>
                   <div className="flex items-center gap-2 text-sm">
                     <span className="text-black-60">{order.orderNumber}</span>
                     <span
@@ -204,25 +204,25 @@ export function OrderSidebar() {
                     </span>
                     <span className="text-black-60">{order.time}</span>
                   </div>
-                </div>
-
-                {/* Right Arrow */}
-                <ChevronRight
-                  size={20}
-                  className={`transition-opacity ${
-                    selectedOrderId === order.id
-                      ? "text-orange-500"
-                      : "text-black-60 opacity-0 group-hover:opacity-100"
-                  }`}
-                />
               </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Merge Orders Button */}
+              {/* Right Arrow */}
+              <ChevronRight
+                size={20}
+                className={`transition-opacity ${
+                  selectedOrderId === order.id
+                    ? "text-orange-500"
+                    : "text-black-60 opacity-0 group-hover:opacity-100"
+                }`}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Merge Orders Button */}
         <MainButton variant="secondary" className="mx-4 my-3 w-auto !px-4">
-          Merge Orders
+        Merge Orders
         </MainButton>
       </div>
     </div>

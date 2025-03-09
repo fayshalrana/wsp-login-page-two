@@ -79,3 +79,26 @@ Service Panel visible, login form aligned properly.
 Tablet & Mobile Mode:
 
 Service Panel is hidden.
+
+
+Follow up Prompt
+### Prompt-2 
+Left Side:
+Background image with transparent orange overlay (50% opacity).
+In landscape mode, show the logo, service panel text, and a paragraph.
+In portrait mode, hide the left sidebar and move the logo and service panel text to the top.
+
+Right Side:
+Login form with email & password fields.
+"Login with Code" as the default link.
+
+### Prompt-3
+Use ShadCN UI components for inputs, checkboxes, and buttons.
+Spacing & Padding:
+Match as closely as possible to the provided screenshot.
+Email & Password Fields:
+Labels should have class text-black-60 and font size 13px.
+Remove the default focus color.
+Sign-In Button:
+Initially, apply bg-black-5 cursor-not-allowed.
+Once both fields are filled, change to bg-black-100 text-white.
