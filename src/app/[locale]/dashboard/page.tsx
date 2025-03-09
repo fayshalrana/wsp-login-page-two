@@ -1,6 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import {
+  AssignmentTurnedInIcon,
+  LabProfileIcon,
+  ReceiptLongIcon,
+} from "@/icons"
 import { CheckCircle, CheckSquare, DollarSign, FileText, X } from "lucide-react"
 
 import { CompletedOrdersChart } from "@/components/dashboard/completed-orders-chart"
@@ -8,8 +13,12 @@ import { PaymentDistribution } from "@/components/dashboard/payment-distribution
 import { PopularItems } from "@/components/dashboard/popular-items"
 import { StatsCard } from "@/components/dashboard/stats-card"
 import { CustomSelect } from "@/components/select"
-import { fontBodyBold, fontBodyNormal, fontHeadline, fontTitle1 } from "@/styles/typography"
-import { AssignmentTurnedInIcon, LabProfileIcon, ReceiptLongIcon } from "@/icons"
+import {
+  fontBodyBold,
+  fontBodyNormal,
+  fontHeadline,
+  fontTitle1,
+} from "@/styles/typography"
 
 interface DashboardPageProps {
   params: {
@@ -34,8 +43,7 @@ const popularItems = [
   { name: "BBQ Chicken Pizza", orders: 49 },
   { name: "Spicy Buffalo Wings", orders: 58 },
   { name: "Classic Caesar Salad", orders: 30 },
-];
-
+]
 
 const monthlyData = [
   { month: "Jan", orders: 120 },
@@ -63,11 +71,28 @@ const paymentData = [
 const statsData = [
   { title: "Revenue", value: "$3,145.00", icon: DollarSign, key: "revenue" },
   { title: "All Order", value: "290", icon: LabProfileIcon, key: "all-order" },
-  { title: "Paid Orders", value: "173", icon: ReceiptLongIcon, key: "paid-orders" },
-  { title: "Accepted", value: "38", icon: AssignmentTurnedInIcon, key: "accepted" },
+  {
+    title: "Paid Orders",
+    value: "173",
+    icon: ReceiptLongIcon,
+    key: "paid-orders",
+  },
+  {
+    title: "Accepted",
+    value: "38",
+    icon: AssignmentTurnedInIcon,
+    key: "accepted",
+  },
   { title: "Completed", value: "155", icon: CheckCircle, key: "completed" },
-  { title: "Canceled", value: "8", icon: X, key: "canceled" }
-];
+  {
+    title: "Canceled",
+    value: "8",
+    icon: X,
+    key: "canceled",
+    iconBgColor: "#EF4444",
+    isCanceled: true,
+  },
+]
 
 // Add this type for restaurant status
 type RestaurantStatus = "OPEN" | "BUSY" | "CLOSED"
@@ -130,24 +155,28 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="mb-2 grid grid-cols-4 lg:grid-cols-6 gap-4">
-      {statsData.map((stat) => (
-      <StatsCard
-        key={stat.key}
-        title={stat.title}
-        value={stat.value}
-        icon={stat.icon}
-        isSelected={selectedCard === stat.key}
-        onClick={() => setSelectedCard(selectedCard === stat.key ? null : stat.key)}
-      />
-    ))}
+      <div className="mb-2 grid grid-cols-4 gap-4 lg:grid-cols-6">
+        {statsData.map((stat) => (
+          <StatsCard
+            key={stat.key}
+            title={stat.title}
+            value={stat.value}
+            icon={stat.icon}
+            iconBgColor={stat.iconBgColor}
+            isCanceled={stat.isCanceled}
+            isSelected={selectedCard === stat.key}
+            onClick={() =>
+              setSelectedCard(selectedCard === stat.key ? null : stat.key)
+            }
+          />
+        ))}
       </div>
 
-      <div className="flex flex-col lg:flex-row items-start gap-2">
+      <div className="flex flex-col items-start gap-2 lg:flex-row">
         <div className="w-full lg:w-[355px]">
           <PopularItems items={popularItems} />
         </div>
-        <div className="w-full lg:flex-1 space-y-2">
+        <div className="w-full space-y-2 lg:flex-1">
           <CompletedOrdersChart initialData={monthlyData} />
           <PaymentDistribution data={paymentData} total={3145} />
         </div>

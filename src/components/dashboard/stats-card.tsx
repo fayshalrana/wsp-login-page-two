@@ -10,6 +10,8 @@ interface StatsCardProps {
   variant?: "primary" | "default"
   isSelected?: boolean
   onClick?: () => void
+  iconBgColor?: string
+  isCanceled?: boolean
 }
 
 export function StatsCard({
@@ -19,33 +21,42 @@ export function StatsCard({
   variant = "default",
   isSelected = false,
   onClick,
+  iconBgColor,
+  isCanceled = false,
 }: StatsCardProps) {
   return (
     <button
       onClick={onClick}
-      className={`relative flex h-[160px] lg:h-[194px] w-full flex-col justify-between rounded-xl p-4 transition-colors
+      className={`relative flex h-[160px] w-full flex-col justify-between rounded-xl p-4 transition-colors lg:h-[194px]
         ${
           variant === "primary"
             ? "bg-[var(--brand-background)] text-white"
             : isSelected
-              ? "bg-[var(--brand-background)] text-white"
+              ? isCanceled
+                ? "bg-white text-black"
+                : "bg-[var(--brand-background)] text-white"
               : "bg-white text-black hover:bg-[var(--brand-background)] hover:text-white"
         }`}
     >
       <div
-        className={`rounded-full ${
-          variant === "primary" ||
-          isSelected ||
-          "hover:bg-[var(--brand-background)]"
-            ? "bg-white/20"
-            : "bg-black/5"
-        } w-fit p-1`}
+        className={`w-fit rounded-full p-1`}
+        style={{
+          backgroundColor:
+            isSelected && isCanceled
+              ? "var(--brand-background)"
+              : iconBgColor ||
+                (variant === "primary" || isSelected
+                  ? "rgba(255, 255, 255, 0.2)"
+                  : "rgba(0, 0, 0, 0.05)"),
+        }}
       >
         <Icon
           className={`h-5 w-5 ${
-            variant === "primary" || isSelected
+            isSelected && isCanceled
               ? "text-white"
-              : "text-black/80 group-hover:text-white"
+              : isCanceled || variant === "primary" || isSelected
+                ? "text-white"
+                : "text-black/80 group-hover:text-white"
           }`}
         />
       </div>
@@ -53,14 +64,20 @@ export function StatsCard({
       <div>
         <p
           className={`${fontBodyNormal} text-left ${
-            variant === "primary" || isSelected
+            variant === "primary" || (isSelected && !isCanceled)
               ? "text-white"
-              : "text-black hover:text-white"
+              : "text-black"
           }`}
         >
           {title}
         </p>
-        <p className={`${fontTitle2} mt-1 text-left`}>{value}</p>
+        <p
+          className={`${fontTitle2} mt-1 text-left ${
+            isSelected && !isCanceled ? "text-white" : "text-black"
+          }`}
+        >
+          {value}
+        </p>
       </div>
     </button>
   )
