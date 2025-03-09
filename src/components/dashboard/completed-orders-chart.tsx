@@ -9,7 +9,7 @@ import {
   XAxis,
 } from "recharts"
 
-import { fontTitle2 } from "@/styles/typography"
+import { fontCaptionBold, fontTitle2 } from "@/styles/typography"
 
 interface MonthData {
   month: string
@@ -23,16 +23,29 @@ interface CompletedOrdersChartProps {
 const CustomBackground = (props: any) => {
   const { x, y, width, height } = props
   return (
-    <rect
-      x={x}
-      y={y}
-      width={width}
-      height={height}
-      fill="url(#stripePattern)"
-      opacity={0.1}
-      rx={25}
-      ry={25}
-    />
+    <g>
+      {/* Solid gray background */}
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        fill="#F3F3F3"
+        rx={25}
+        ry={25}
+      />
+      {/* Striped overlay */}
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        fill="url(#stripePattern)"
+        fillOpacity={0.4}
+        rx={25}
+        ry={25}
+      />
+    </g>
   )
 }
 
@@ -62,7 +75,7 @@ const CustomBar = (props: any) => {
           height={40}
           rx={100}
           ry={100}
-          fill={ isHovered ? "#fff" : "#f3f3f3"}
+          fill={isHovered ? "#fff" : "#f3f3f3"}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         />
@@ -103,9 +116,9 @@ export function CompletedOrdersChart({
   }, [])
 
   return (
-    <div className="rounded-xl bg-black-5 p-6">
+    <div className="rounded-xl bg-black-5 px-4 pt-4">
       <h2 className={`${fontTitle2} mb-6`}>Completed Orders</h2>
-      <div className="h-[300px] w-full">
+      <div className="h-[250px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
@@ -116,17 +129,17 @@ export function CompletedOrdersChart({
               <pattern
                 id="stripePattern"
                 patternUnits="userSpaceOnUse"
-                width="8"
-                height="8"
-                patternTransform="rotate(45)"
+                width="6"
+                height="6"
+                patternTransform="rotate(-45)"
               >
                 <line
                   x1="0"
                   y1="0"
                   x2="0"
-                  y2="4"
-                  stroke="#000000"
-                  strokeWidth="2"
+                  y2="6"
+                  stroke="#e6d3cf"
+                  strokeWidth="8"
                 />
               </pattern>
             </defs>
@@ -147,9 +160,9 @@ export function CompletedOrdersChart({
               shape={<CustomBar />}
               background={<CustomBackground />}
             >
-             {data.map((_, index) => (
-  <Cell key={`cell-${index}`} />
-))}
+              {data.map((_, index) => (
+                <Cell key={`cell-${index}`} />
+              ))}
             </Bar>
           </BarChart>
         </ResponsiveContainer>
@@ -162,7 +175,7 @@ const CustomTooltip = ({ active, payload, coordinate }: any) => {
   if (active && payload && payload.length) {
     return (
       <div
-        className="absolute flex h-7 w-12 items-center justify-center rounded-full bg-black"
+        className="absolute flex h-10 w-[50px] items-center justify-center rounded-3 bg-black before:absolute before:left-1/2 before:-bottom-[5px] before:rotate-45 before:h-[15px] before:w-[15px] before:-translate-x-1/2 before:bg-black before:rounded-[5px]"
         style={{
           left: coordinate.x, // Follow the cursor horizontally
           top: coordinate.y - 40, // Adjust tooltip position above cursor
@@ -171,7 +184,7 @@ const CustomTooltip = ({ active, payload, coordinate }: any) => {
           position: "absolute",
         }}
       >
-        <span className="text-sm font-medium text-white">
+        <span className={`${fontCaptionBold} text-white`}>
           {payload[0].value}
         </span>
       </div>
@@ -179,4 +192,3 @@ const CustomTooltip = ({ active, payload, coordinate }: any) => {
   }
   return null
 }
-
