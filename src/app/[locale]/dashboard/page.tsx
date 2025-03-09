@@ -73,7 +73,7 @@ export default function DashboardPage() {
         />
       </div>
 
-      <div className="mb-6 flex items-center gap-4 rounded-xl bg-[#F7F7F7] p-2">
+      <div className="mb-2 flex items-center gap-2 rounded-xl bg-[#F7F7F7] p-2">
         <span className={`${fontBodyBold} text-black/80`}>
           Restaurant Status
         </span>
@@ -114,7 +114,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="mb-6 grid grid-cols-6 gap-4">
+      <div className="mb-2 grid grid-cols-6 gap-4">
         <StatsCard
           title="Revenue"
           value="$3,145.00"
@@ -170,11 +170,11 @@ export default function DashboardPage() {
         />
       </div>
 
-      <div className="flex items-start gap-6">
+      <div className="flex items-start gap-2">
         <div className="w-[355px]">
           <PopularItems items={popularItems} />
         </div>
-        <div className="flex-1 space-y-6">
+        <div className="flex-1 space-y-2">
           <CompletedOrdersChart initialData={monthlyData} />
           <PaymentDistribution data={paymentData} total={3145} />
         </div>
