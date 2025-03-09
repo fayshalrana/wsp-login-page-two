@@ -9,7 +9,7 @@ import {
   XAxis,
 } from "recharts"
 
-import { fontCaptionBold, fontTitle2 } from "@/styles/typography"
+import { fontCaptionBold, fontHeadline, fontTitle2 } from "@/styles/typography"
 
 interface MonthData {
   month: string
@@ -117,7 +117,7 @@ export function CompletedOrdersChart({
 
   return (
     <div className="rounded-xl bg-black-5 px-4 pt-4">
-      <h2 className={`${fontTitle2} mb-6`}>Completed Orders</h2>
+      <h2 className={`${fontHeadline} font-medium text-black-100 mb-6`}>Completed Orders</h2>
       <div className="h-[250px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart

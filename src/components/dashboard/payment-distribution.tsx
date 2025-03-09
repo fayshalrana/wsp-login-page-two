@@ -1,6 +1,6 @@
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts"
 
-import { fontTitle2, fontTitle3 } from "@/styles/typography"
+import { fontBodyBold, fontCaptionNormal, fontHeadline, fontTitle2, fontTitle3 } from "@/styles/typography"
 
 interface PaymentType {
   method: string
@@ -23,9 +23,9 @@ export function PaymentDistribution({ data, total }: PaymentDistributionProps) {
 
   return (
     <div className="rounded-xl bg-black-5 p-4">
-      <h2 className={`${fontTitle2} mb-6`}>Payment Type Distribution</h2>
+      <h2 className={`${fontHeadline} font-medium text-black-100`}>Payment Type Distribution</h2>
       <div className="flex items-center gap-8">
-        <div className="relative h-[320px] w-[320px]">
+        <div className="relative h-[272px] w-[320px]">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -59,15 +59,17 @@ export function PaymentDistribution({ data, total }: PaymentDistributionProps) {
         </div>
 
         {/* Legend */}
-        <div className="flex flex-col gap-4 w-[220]">
+        <div className="flex flex-col gap-4 w-[220px]">
           {data.map((item, index) => (
-            <div key={index} className="flex items-center gap-3">
-              <div
-                className="h-1.5 w-8 rounded-full"
+            <div key={index} className="flex items-center justify-between gap-1">
+             <div className="flex items-center gap-1">
+             <div
+                className="h-2 w-5 rounded-full"
                 style={{ backgroundColor: item.color }}
-              />
-              <span className="min-w-[80px] text-sm">{item.method}</span>
-              <span className="text-sm font-medium">
+              /> 
+              <span className={`min-w-[80px] ${fontCaptionNormal}`}>{item.method}</span>
+             </div>
+              <span className={`${fontBodyBold}`}>
                 ${item.amount.toLocaleString()}
               </span>
             </div>

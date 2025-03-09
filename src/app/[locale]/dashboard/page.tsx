@@ -9,6 +9,7 @@ import { PopularItems } from "@/components/dashboard/popular-items"
 import { StatsCard } from "@/components/dashboard/stats-card"
 import { CustomSelect } from "@/components/select"
 import { fontBodyBold, fontBodyNormal, fontHeadline, fontTitle1 } from "@/styles/typography"
+import { AssignmentTurnedInIcon, LabProfileIcon, ReceiptLongIcon } from "@/icons"
 
 interface DashboardPageProps {
   params: {
@@ -28,7 +29,13 @@ const popularItems = [
   { name: "Double Spicy Bean Burger", orders: 41 },
   { name: "Potato Gems", orders: 38 },
   { name: "Beer", orders: 32 },
-]
+  { name: "Grilled Chicken Wrap", orders: 65 },
+  { name: "Cheese Loaded Fries", orders: 52 },
+  { name: "BBQ Chicken Pizza", orders: 49 },
+  { name: "Spicy Buffalo Wings", orders: 58 },
+  { name: "Classic Caesar Salad", orders: 30 },
+];
+
 
 const monthlyData = [
   { month: "Jan", orders: 120 },
@@ -53,6 +60,15 @@ const paymentData = [
   { method: "Crypto", amount: 270, color: "#8B5CF6" },
 ]
 
+const statsData = [
+  { title: "Revenue", value: "$3,145.00", icon: DollarSign, key: "revenue" },
+  { title: "All Order", value: "290", icon: LabProfileIcon, key: "all-order" },
+  { title: "Paid Orders", value: "173", icon: ReceiptLongIcon, key: "paid-orders" },
+  { title: "Accepted", value: "38", icon: AssignmentTurnedInIcon, key: "accepted" },
+  { title: "Completed", value: "155", icon: CheckCircle, key: "completed" },
+  { title: "Canceled", value: "8", icon: X, key: "canceled" }
+];
+
 // Add this type for restaurant status
 type RestaurantStatus = "OPEN" | "BUSY" | "CLOSED"
 
@@ -74,7 +90,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="mb-2 flex items-center gap-6 rounded-3 bg-black-5 p-4">
-        <span className={`${fontHeadline} font-mediam text-black-100`}>
+        <span className={`${fontHeadline} font-medium text-black-100`}>
           Restaurant Status
         </span>
         <div className="flex gap-2">
@@ -91,7 +107,7 @@ export default function DashboardPage() {
           </button>
           <button
             onClick={() => setRestaurantStatus("BUSY")}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors
+            className={`rounded-full px-4 py-2 ${fontBodyNormal} transition-colors
               ${
                 restaurantStatus === "BUSY"
                   ? "bg-[#F59E0B] text-white"
@@ -102,7 +118,7 @@ export default function DashboardPage() {
           </button>
           <button
             onClick={() => setRestaurantStatus("CLOSED")}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors
+            className={`rounded-full px-4 py-2 ${fontBodyNormal} transition-colors
               ${
                 restaurantStatus === "CLOSED"
                   ? "bg-[#EF4444] text-white"
@@ -115,59 +131,16 @@ export default function DashboardPage() {
       </div>
 
       <div className="mb-2 grid grid-cols-6 gap-4">
-        <StatsCard
-          title="Revenue"
-          value="$3,145.00"
-          icon={DollarSign}
-          variant="primary"
-        />
-        <StatsCard
-          title="All Order"
-          value="290"
-          icon={FileText}
-          isSelected={selectedCard === "all-order"}
-          onClick={() =>
-            setSelectedCard(selectedCard === "all-order" ? null : "all-order")
-          }
-        />
-        <StatsCard
-          title="Paid Orders"
-          value="173"
-          icon={FileText}
-          isSelected={selectedCard === "paid-orders"}
-          onClick={() =>
-            setSelectedCard(
-              selectedCard === "paid-orders" ? null : "paid-orders"
-            )
-          }
-        />
-        <StatsCard
-          title="Accepted"
-          value="38"
-          icon={CheckSquare}
-          isSelected={selectedCard === "accepted"}
-          onClick={() =>
-            setSelectedCard(selectedCard === "accepted" ? null : "accepted")
-          }
-        />
-        <StatsCard
-          title="Completed"
-          value="155"
-          icon={CheckCircle}
-          isSelected={selectedCard === "completed"}
-          onClick={() =>
-            setSelectedCard(selectedCard === "completed" ? null : "completed")
-          }
-        />
-        <StatsCard
-          title="Canceled"
-          value="8"
-          icon={X}
-          isSelected={selectedCard === "canceled"}
-          onClick={() =>
-            setSelectedCard(selectedCard === "canceled" ? null : "canceled")
-          }
-        />
+      {statsData.map((stat) => (
+      <StatsCard
+        key={stat.key}
+        title={stat.title}
+        value={stat.value}
+        icon={stat.icon}
+        isSelected={selectedCard === stat.key}
+        onClick={() => setSelectedCard(selectedCard === stat.key ? null : stat.key)}
+      />
+    ))}
       </div>
 
       <div className="flex items-start gap-2">

@@ -1,4 +1,4 @@
-import { fontBodyBold, fontTitle2 } from "@/styles/typography"
+import { fontBodyBold, fontCaptionBold, fontCaptionNormal, fontHeadline, fontTitle2 } from "@/styles/typography"
 
 interface PopularItem {
   name: string
@@ -11,13 +11,13 @@ interface PopularItemsProps {
 
 export function PopularItems({ items }: PopularItemsProps) {
   return (
-    <div className="rounded-xl bg-white p-6">
-      <h2 className={`${fontTitle2} mb-4`}>Popular Items</h2>
-      <div className="grid grid-cols-2 gap-4">
+    <div className="rounded-xl bg-black-5 p-4">
+      <h2 className={`${fontHeadline} font-medium text-black-100 mb-4`}>Popular Items</h2>
+      <div className="grid grid-cols-2 gap-2">
         {items.map((item, index) => (
-          <div key={index} className="rounded-lg border border-black/5 p-4">
-            <p className={fontBodyBold}>{item.name}</p>
-            <p className="mt-1 text-sm text-black/60">Orders: {item.orders}</p>
+          <div key={index} className="flex flex-col gap-5 rounded-3 border border-black/5 bg-white-60 p-4">
+            <p className={fontCaptionBold}>{item.name}</p>
+            <p className={`${fontCaptionNormal} text-black-60`}>Orders: <span className="text-black">{item.orders}</span></p>
           </div>
         ))}
       </div>

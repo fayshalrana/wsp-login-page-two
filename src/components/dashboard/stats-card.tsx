@@ -1,11 +1,12 @@
-import { LucideIcon } from "lucide-react"
+import { ComponentType } from "react"
+import { LucideIcon, LucideProps } from "lucide-react"
 
 import { fontBodyNormal, fontTitle2 } from "@/styles/typography"
 
 interface StatsCardProps {
   title: string
   value: string
-  icon: LucideIcon
+  icon: ComponentType<LucideProps> | LucideIcon
   variant?: "primary" | "default"
   isSelected?: boolean
   onClick?: () => void
@@ -22,42 +23,44 @@ export function StatsCard({
   return (
     <button
       onClick={onClick}
-      className={`relative flex h-[120px] w-full flex-col justify-between rounded-xl p-4 transition-colors
+      className={`relative flex h-[194px] w-full flex-col justify-between rounded-xl p-4 transition-colors
         ${
           variant === "primary"
-            ? "bg-[#FF5B36] text-white"
+            ? "bg-[var(--brand-background)] text-white"
             : isSelected
-              ? "bg-[#FF5B36] text-white"
-              : "bg-white text-black hover:bg-[#FF5B36] hover:text-white"
+              ? "bg-[var(--brand-background)] text-white"
+              : "bg-white text-black hover:bg-[var(--brand-background)] hover:text-white"
         }`}
     >
       <div
         className={`rounded-full ${
-          variant === "primary" || isSelected || "hover:bg-[#FF5B36]"
+          variant === "primary" ||
+          isSelected ||
+          "hover:bg-[var(--brand-background)]"
             ? "bg-white/20"
             : "bg-black/5"
-        } w-fit p-2`}
+        } w-fit p-1`}
       >
         <Icon
           className={`h-5 w-5 ${
             variant === "primary" || isSelected
               ? "text-white"
-              : "text-black/60 group-hover:text-white"
+              : "text-black/80 group-hover:text-white"
           }`}
         />
       </div>
 
       <div>
         <p
-          className={`${fontBodyNormal} ${
+          className={`${fontBodyNormal} text-left ${
             variant === "primary" || isSelected
-              ? "text-white/60"
-              : "text-black/60"
+              ? "text-white"
+              : "text-black hover:text-white"
           }`}
         >
           {title}
         </p>
-        <p className={`${fontTitle2} mt-1`}>{value}</p>
+        <p className={`${fontTitle2} mt-1 text-left`}>{value}</p>
       </div>
     </button>
   )
