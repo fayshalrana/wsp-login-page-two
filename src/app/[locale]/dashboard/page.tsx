@@ -8,7 +8,7 @@ import { PaymentDistribution } from "@/components/dashboard/payment-distribution
 import { PopularItems } from "@/components/dashboard/popular-items"
 import { StatsCard } from "@/components/dashboard/stats-card"
 import { CustomSelect } from "@/components/select"
-import { fontBodyBold, fontTitle1 } from "@/styles/typography"
+import { fontBodyBold, fontBodyNormal, fontHeadline, fontTitle1 } from "@/styles/typography"
 
 interface DashboardPageProps {
   params: {
@@ -73,14 +73,14 @@ export default function DashboardPage() {
         />
       </div>
 
-      <div className="mb-2 flex items-center gap-2 rounded-xl bg-[#F7F7F7] p-2">
-        <span className={`${fontBodyBold} text-black/80`}>
+      <div className="mb-2 flex items-center gap-6 rounded-3 bg-black-5 p-4">
+        <span className={`${fontHeadline} font-mediam text-black-100`}>
           Restaurant Status
         </span>
         <div className="flex gap-2">
           <button
             onClick={() => setRestaurantStatus("OPEN")}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors
+            className={`rounded-full px-4 py-3 ${fontBodyNormal} transition-colors
               ${
                 restaurantStatus === "OPEN"
                   ? "bg-[#22C55E] text-white"
