@@ -85,10 +85,11 @@ export default async function RootLayout({
   if (!routing.locales.includes(locale as any)) {
     notFound()
   }
-
-  const authToken = cookies().get("authToken")?.value || null
-  const brandId = cookies().get("brandId")?.value || null
-  const userId = cookies().get("userId")?.value || null
+  const cookiesStore = await cookies()
+  const authToken = cookiesStore.get("authToken")?.value || null
+  const brandId = cookiesStore.get("brandId")?.value || null
+  const userId = cookiesStore.get("userId")?.value || null
+  
 
   const messages = await getMessages()
 
