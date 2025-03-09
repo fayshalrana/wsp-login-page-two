@@ -1,11 +1,9 @@
-"use client"
 import { useState } from "react"
-import { X } from "lucide-react"
+import { ChevronDown, Search, X } from "lucide-react"
 
 import {
   Dialog,
   DialogFullScreenContent,
-  DialogOverlay,
   DialogTitle,
 } from "@/components/dialog"
 import SearchInput from "@/components/searchInput"
@@ -58,8 +56,7 @@ export function TableSelectDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogOverlay className="z-[60]" />
-      <DialogFullScreenContent className="z-[61] flex h-full flex-col bg-white">
+      <DialogFullScreenContent className="flex h-full flex-col bg-white">
         {/* Header */}
         <div className="">
           <div className="relative px-6 py-5">
@@ -68,7 +65,7 @@ export function TableSelectDialog({
             </DialogTitle>
             <button
               onClick={onClose}
-              className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full border bg-black-5 p-2 shadow-lg hover:bg-black/5"
+              className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full border border-black/5 bg-white p-2 shadow-lg hover:bg-black/5"
             >
               <X className="h-5 w-5" />
             </button>
@@ -81,7 +78,7 @@ export function TableSelectDialog({
                 <button
                   key={location}
                   onClick={() => setSelectedLocation(location)}
-                  className={`rounded-full px-3 py-4 text-sm font-medium transition-colors
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors
                     ${
                       location === selectedLocation
                         ? "bg-[#FF5B36] text-white"

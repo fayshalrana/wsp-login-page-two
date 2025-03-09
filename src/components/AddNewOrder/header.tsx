@@ -1,10 +1,9 @@
-"use client"
 import { useState } from "react"
+import { GridIcon } from "@/icons"
 import { List, X } from "lucide-react"
 
 import { Badge } from "@/components/badge"
 import SearchInput from "@/components/searchInput"
-import { GridIcon } from "@/icons"
 
 interface MenuItem {
   id: string
@@ -76,7 +75,7 @@ export function Header({
         </div>
 
         {/* Close Button */}
-        <button className="flex h-12 w-12 items-center justify-center rounded-full bg-white border border-black-10 shadow-2xl transition-colors hover:bg-black/10">
+        <button className="flex h-12 w-12 items-center justify-center rounded-full border border-black-10 bg-white shadow-2xl transition-colors hover:bg-black/10">
           <X className="h-5 w-5 text-black/60" />
         </button>
       </div>

@@ -1,8 +1,8 @@
-"use client"
 import { Minus, Plus } from "lucide-react"
 
-import { CartItem } from "./types"
 import { fontCaptionBold, fontCaptionNormal } from "@/styles/typography"
+
+import { CartItem } from "./types"
 
 interface CartItemProps {
   item: CartItem
@@ -34,7 +34,9 @@ export function CartItemCard({ item, onUpdateQuantity }: CartItemProps) {
       <div className="flex flex-wrap items-center gap-2">
         {item.size && (
           <div className="rounded-full bg-black/5 px-3 py-1.5">
-            <span className={`${fontCaptionNormal}  text-black-40`}>Size: </span>
+            <span className={`${fontCaptionNormal}  text-black-40`}>
+              Size:{" "}
+            </span>
             <span className={`${fontCaptionNormal}`}>{item.size}</span>
           </div>
         )}

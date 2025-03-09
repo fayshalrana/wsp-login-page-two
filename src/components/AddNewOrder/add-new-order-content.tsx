@@ -1,6 +1,10 @@
 "use client"
 
 import { useState } from "react"
+import { ChevronDown, Plus, Table2 } from "lucide-react"
+
+import { MainButton } from "@/components/mainButton"
+import { fontTitle1 } from "@/styles/typography"
 
 import { Header } from "./header"
 import { MenuItemCard } from "./menu-item-card"
@@ -24,7 +28,7 @@ export function AddNewOrderContent({
   const [isGridView, setIsGridView] = useState(true)
 
   return (
-    <div className={`flex h-full`}>
+    <div className="flex h-full">
       {/* Left Side - Menu Items */}
       <div className="flex w-full flex-col border-r border-black/5">
         {/* Fixed Header */}

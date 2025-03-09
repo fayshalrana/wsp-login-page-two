@@ -1,4 +1,3 @@
-"use client"
 import { useState } from "react"
 import { PersonIcon, TableBarIcon } from "@/icons"
 import { ChevronDown, Plus, Trash2 } from "lucide-react"
@@ -55,7 +54,7 @@ export function Sidebar({
 
   return (
     <div className="py-4 pl-4">
-      <div className="flex h-full w-[250px] flex-shrink-0 flex-col rounded-3 bg-white lg:w-[315px]">
+      <div className="flex h-full w-[315px] flex-shrink-0 flex-col rounded-3 bg-white">
         <div className="p-4">
           {/* Title */}
           <h1 className={`${fontTitle1} mb-6`}>Add New Order</h1>

@@ -1,8 +1,8 @@
-"use client"
 import { Plus } from "lucide-react"
 
-import { MenuItem } from "./types"
 import { fontCaptionBold } from "@/styles/typography"
+
+import { MenuItem } from "./types"
 
 interface MenuItemCardProps {
   item: MenuItem

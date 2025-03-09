@@ -1,11 +1,11 @@
-'use client'
 import { useState } from "react"
 import { MailIcon, PersonIcon } from "@/icons"
-import { ChevronDown, X } from "lucide-react"
+import { ChevronDown, Search, X } from "lucide-react"
 
 import {
   Dialog,
   DialogContent,
+  DialogHeader,
   DialogTitle,
 } from "@/components/dialog"
 import { Input } from "@/components/input"
@@ -31,16 +31,66 @@ interface Country {
 }
 
 const countries: Country[] = [
-  { code: "GB", flagUrl: "https://flagcdn.com/w40/gb.png", name: "United Kingdom", dialCode: "+44" },
-  { code: "US", flagUrl: "https://flagcdn.com/w40/us.png", name: "United States", dialCode: "+1" },
-  { code: "IN", flagUrl: "https://flagcdn.com/w40/in.png", name: "India", dialCode: "+91" },
-  { code: "CN", flagUrl: "https://flagcdn.com/w40/cn.png", name: "China", dialCode: "+86" },
-  { code: "JP", flagUrl: "https://flagcdn.com/w40/jp.png", name: "Japan", dialCode: "+81" },
-  { code: "DE", flagUrl: "https://flagcdn.com/w40/de.png", name: "Germany", dialCode: "+49" },
-  { code: "FR", flagUrl: "https://flagcdn.com/w40/fr.png", name: "France", dialCode: "+33" },
-  { code: "IT", flagUrl: "https://flagcdn.com/w40/it.png", name: "Italy", dialCode: "+39" },
-  { code: "BR", flagUrl: "https://flagcdn.com/w40/br.png", name: "Brazil", dialCode: "+55" },
-  { code: "AE", flagUrl: "https://flagcdn.com/w40/ae.png", name: "UAE", dialCode: "+971" },
+  {
+    code: "GB",
+    flagUrl: "https://flagcdn.com/w40/gb.png",
+    name: "United Kingdom",
+    dialCode: "+44",
+  },
+  {
+    code: "US",
+    flagUrl: "https://flagcdn.com/w40/us.png",
+    name: "United States",
+    dialCode: "+1",
+  },
+  {
+    code: "IN",
+    flagUrl: "https://flagcdn.com/w40/in.png",
+    name: "India",
+    dialCode: "+91",
+  },
+  {
+    code: "CN",
+    flagUrl: "https://flagcdn.com/w40/cn.png",
+    name: "China",
+    dialCode: "+86",
+  },
+  {
+    code: "JP",
+    flagUrl: "https://flagcdn.com/w40/jp.png",
+    name: "Japan",
+    dialCode: "+81",
+  },
+  {
+    code: "DE",
+    flagUrl: "https://flagcdn.com/w40/de.png",
+    name: "Germany",
+    dialCode: "+49",
+  },
+  {
+    code: "FR",
+    flagUrl: "https://flagcdn.com/w40/fr.png",
+    name: "France",
+    dialCode: "+33",
+  },
+  {
+    code: "IT",
+    flagUrl: "https://flagcdn.com/w40/it.png",
+    name: "Italy",
+    dialCode: "+39",
+  },
+  {
+    code: "BR",
+    flagUrl: "https://flagcdn.com/w40/br.png",
+    name: "Brazil",
+    dialCode: "+55",
+  },
+  {
+    code: "AE",
+    flagUrl: "https://flagcdn.com/w40/ae.png",
+    name: "UAE",
+    dialCode: "+971",
+  },
 ]
 
 export function GuestInfoDialog({
@@ -130,7 +180,11 @@ export function GuestInfoDialog({
                     }
                     className="flex h-12 w-[116px] flex-none items-center justify-between gap-1 rounded-full bg-black-5 p-4 text-black-100"
                   >
-                     <img src={selectedCountry.flagUrl} alt={selectedCountry.name} className="w-6 h-4 rounded-sm" />
+                    <img
+                      src={selectedCountry.flagUrl}
+                      alt={selectedCountry.name}
+                      className="h-4 w-6 rounded-sm"
+                    />
                     <span className="text-sm text-black/60">
                       {selectedCountry.dialCode}
                     </span>
@@ -169,7 +223,11 @@ export function GuestInfoDialog({
                           className="flex w-full items-center justify-between px-2 py-2 hover:bg-black/5"
                         >
                           <div className="flex items-center gap-2">
-                          <img src={country.flagUrl} alt={country.name} className="w-6 h-4 rounded-sm" />
+                            <img
+                              src={country.flagUrl}
+                              alt={country.name}
+                              className="h-4 w-6 rounded-sm"
+                            />
                             <span className="text-sm">{country.name}</span>
                           </div>
                           <span className="text-sm text-black/60">
