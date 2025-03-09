@@ -1,12 +1,11 @@
 'use client'
 import { useState } from "react"
 import { MailIcon, PersonIcon } from "@/icons"
-import { ChevronDown, Search, X } from "lucide-react"
+import { ChevronDown, X } from "lucide-react"
 
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
 } from "@/components/dialog"
 import { Input } from "@/components/input"
