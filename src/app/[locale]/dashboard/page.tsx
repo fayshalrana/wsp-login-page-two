@@ -56,7 +56,7 @@ const paymentData = [
 // Add this type for restaurant status
 type RestaurantStatus = "OPEN" | "BUSY" | "CLOSED"
 
-export default function DashboardPage({ params }: DashboardPageProps) {
+export default function DashboardPage() {
   const [restaurantStatus, setRestaurantStatus] =
     useState<RestaurantStatus>("OPEN")
   const [selectedCard, setSelectedCard] = useState<string | null>(null)

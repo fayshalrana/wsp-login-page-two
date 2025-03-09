@@ -1,0 +1,88 @@
+Prompt to Generate This Dashboard
+
+Create a modern restaurant dashboard with a soft pink gradient background. 
+##prompt 1
+
+1. **Header Section:**
+   - Display "Dashboard" in bold, large text.
+   - Include a dropdown for selecting date range (default: "Today").
+
+2. **Restaurant Status (Toggle Tabs):**
+   - Three pill-shaped buttons: "OPEN" (Green), "BUSY" (Gray), "CLOSED" (Gray).
+   - Active tab has a darker background.
+
+3. **Key Metrics Section (Grid Cards 2x3):**
+   - 6 rectangular cards, each with an icon, title, and value.
+   - Revenue card has a red background with white text.
+   - Other cards have a white background with black text.
+
+4. **Popular Items (Two-Column Grid List):**
+   - Title: "Popular Items"
+   - List items (each containing a food item name and order count).
+
+5. **Completed Orders (Bar Chart):**
+   - Title: "Completed Orders"
+   - 12 bars (for Jan-Dec), with a red-highlighted bar for the highest month.
+   - Display value as a tooltip on hover.
+
+6. **Payment Type Distribution (Donut Chart):**
+   - Title: "Payment Type Distribution"
+   - Center of the chart shows the total revenue ($3,145.00).
+   - Different colors for each payment type.
+   - Legend on the right side listing payment methods with values.
+
+Use Tailwind CSS for styling, and Recharts for charts. Maintain a clean, soft, modern UI with rounded edges and shadows for depth.
+
+##Followup Commands
+1. Global Structure:
+Implement a global CSS file (globals.css) to handle common styles like background, spacing, borders, and colors.
+Create a typography file (typography.css) for consistent font styles across the app.
+Use CSS variables for colors, spacing, and font sizes.
+2. Dashboard Layout:
+Header Section:
+
+Display "Dashboard" in bold, large text.
+Include a date range dropdown (default: "Today"), styled consistently using the typography file.
+Restaurant Status (Toggle Tabs):
+
+Three pill-shaped buttons: "OPEN" (Green), "BUSY" (Gray), "CLOSED" (Gray).
+Use global styles for button spacing, shadows, and active states.
+Key Metrics Section (Grid Cards 2x3):
+
+Six rectangular cards arranged in a responsive grid.
+Icons + Titles + Values inside each card.
+"Revenue" card has a red background with white text.
+Other cards have a white background with black text.
+Apply global CSS classes for card shadows, border radius, and hover effects.
+Popular Items (Two-Column Grid List):
+
+Title: "Popular Items"
+A grid list of menu items, each containing:
+Bolded food name
+Smaller order count
+Typography file controls font sizes and line heights for readability.
+Completed Orders (Bar Chart):
+
+Title: "Completed Orders"
+Use Recharts for a 12-bar chart (Jan-Dec).
+One bar ("June") is highlighted in red (indicating the peak month).
+Bars use global CSS for height animation and hover effects.
+Tooltip shows order count on hover.
+Payment Type Distribution (Donut Chart):
+
+Title: "Payment Type Distribution"
+Center of the donut chart displays total revenue ($3,145.00).
+Use different colors for each payment method (Card, PayPal, Apple Pay, Cash, Crypto).
+Place legend on the right with values aligned using global CSS.
+3. Styling Strategy:
+✅ Global Styles (globals.css):
+
+Define CSS variables for colors, padding, and border-radius.
+Apply container width restrictions and responsive layout handling.
+Maintain a soft gradient background for the entire dashboard.
+✅ Typography (typography.css):
+
+Set font families (DM Sans) and font weights for headings and body text.
+Create reusable text styles (.heading-lg, .text-sm, .font-bold).
+Ensure consistent text alignment and spacing.
+
