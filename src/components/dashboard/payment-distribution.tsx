@@ -24,7 +24,7 @@ export function PaymentDistribution({ data, total }: PaymentDistributionProps) {
   return (
     <div className="rounded-xl bg-black-5 p-4">
       <h2 className={`${fontHeadline} font-medium text-black-100`}>Payment Type Distribution</h2>
-      <div className="flex items-center gap-8">
+      <div className="flex justify-around lg:justify-start items-center gap-8">
         <div className="relative h-[272px] w-[320px]">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>

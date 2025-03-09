@@ -130,7 +130,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="mb-2 grid grid-cols-6 gap-4">
+      <div className="mb-2 grid grid-cols-4 lg:grid-cols-6 gap-4">
       {statsData.map((stat) => (
       <StatsCard
         key={stat.key}
@@ -143,11 +143,11 @@ export default function DashboardPage() {
     ))}
       </div>
 
-      <div className="flex items-start gap-2">
-        <div className="w-[355px]">
+      <div className="flex flex-col lg:flex-row items-start gap-2">
+        <div className="w-full lg:w-[355px]">
           <PopularItems items={popularItems} />
         </div>
-        <div className="flex-1 space-y-2">
+        <div className="w-full lg:flex-1 space-y-2">
           <CompletedOrdersChart initialData={monthlyData} />
           <PaymentDistribution data={paymentData} total={3145} />
         </div>

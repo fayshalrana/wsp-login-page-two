@@ -23,7 +23,7 @@ export function StatsCard({
   return (
     <button
       onClick={onClick}
-      className={`relative flex h-[194px] w-full flex-col justify-between rounded-xl p-4 transition-colors
+      className={`relative flex h-[160px] lg:h-[194px] w-full flex-col justify-between rounded-xl p-4 transition-colors
         ${
           variant === "primary"
             ? "bg-[var(--brand-background)] text-white"
