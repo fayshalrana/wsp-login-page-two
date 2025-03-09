@@ -2,7 +2,10 @@
 
 import { NotificationsScreen } from "@/components/notifications/notifications";
 
-export default function Page({ params }: { params: { locale: string } }) {
-  console.log("Params:", params); // Debugging
+interface NotificationsPageProps {
+  params: { locale: string }; // Ensure `params` is an object, not a Promise
+}
+
+export default function Page({ params }: NotificationsPageProps) {
   return <NotificationsScreen />;
 }
