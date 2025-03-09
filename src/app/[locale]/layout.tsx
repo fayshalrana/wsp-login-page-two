@@ -89,7 +89,6 @@ export default async function RootLayout({
   const authToken = cookiesStore.get("authToken")?.value || null
   const brandId = cookiesStore.get("brandId")?.value || null
   const userId = cookiesStore.get("userId")?.value || null
-  
 
   const messages = await getMessages()
 
