@@ -1,104 +1,80 @@
-Task: Build a Responsive Login Page in Next.js
+Convert a screenshot into a fully functional Next.js interface using Tailwind CSS and ShadCN UI components, ensuring pixel-perfect implementation. Use global styles from global.css and typography settings from typography.ts.
 
-You need to convert a screenshot into a fully functional Next.js app using Tailwind CSS and ShadCN UI components, ensuring pixel-perfect implementation. Follow the design precisely, using global styles from global.css and typography settings from typography.ts.
+# Component Breakdown & Requirements
+@ Service Panel (servicePanel.tsx)
+pointer Max Width: 480px
+pointer Background Image: signin.png
+pointer Rounded Border Radius: rounded-radius-6 (from global.css)
+pointer Typography & Colors: Use typography.ts and global.css
+pointer Classes: Import global styles for padding, spacing, and text
 
-Analyze the Screenshot
-Review the layout, colors, typography, spacing, and interactive elements.
-Identify reusable components from the existing components/ folder.
-
-Plan the Component Structure
-Break down the UI into small, reusable components.
-Use semantic HTML and ShadCN UI components.
-Ensure responsive design across different screen sizes.
-
-UI Implementation Details
-Service Panel (@servicePanel.tsx)
-Max width: 480px
-Background Image: signin.png
-Rounded Border Radius: rounded-radius-6 (from global.css)
-Typography & Colors: Use typography.ts and global.css
-Classes: Import global styles for padding, spacing, and text
-
-Responsive Behavior:
-
-Desktop View: Panel is visible.
+pointer Responsive Behavior
+Desktop: Panel is visible.
 Tablet & Mobile: Panel is hidden.
+@ Page Layout (page.tsx)
+pointer Padding: 16px (use global variable from global.css).
+pointer Structure: Match the provided screenshot.
 
-Page Layout (@page.tsx)
-Padding: 16px (use global variable from global.css).
-Structure: Match the provided screenshot.
-
-Tablet Mode Adjustments:
-
-Stack logo and "Service Panel" at the top (flex-col).
-
-Overlays
-First Overlay
+pointer Tablet Mode Adjustments
+Stack logo and Service Panel at the top (flex-col).
+@ Overlays
+pointer First Overlay
 Background Color: Background/Brand/Orange 100 (from global.css).
-Second Overlay
+pointer Second Overlay
 Position: absolute, bottom: 0, left: 0, right: 0.
-Background Gradient: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 50%, #000000 100%);
+Background Gradient:
+css
+Copy
+Edit
+linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 50%, #000000 100%);
+@ Logo
+Desktop: public/Logo-white.png
+# Right Side: Login Forms
+@ Login Form (loginForm.tsx)
+pointer Max Width: 360px (inside a full-width container).
+pointer Centered Horizontally.
+pointer Title: "Welcome Back"
+pointer Typography & Colors: Use styles from typography.ts and global.css.
 
-Logo
-For desktop Image Path: public/Logo-white.png
-
-Login Form (@loginForm.tsx)
-Max Width: 360px (inside a full-width container).
-Centered Horizontally.
-
-Content Section
-Title: "Welcome Back"
-Typography & Colors: Use styles from typography.ts and global.css.
-
-Input Fields (Email & Password)
+pointer Input Fields (Email & Password)
 Use existing Input.tsx (@input.tsx) with variant="signIn".
-Password Input:
-
-Should include eye.svg and eyeoff.svg (from public/).
-Checkbox ("Remember Me") (@checkbox.tsx)
-Use existing Checkbox.tsx component.
+Labels: text-black-60, Font Size: 13px.
+Remove default focus color.
+pointer Password Input
+Should include eye.svg and eyeoff.svg (public/).
+pointer Checkbox (@checkbox.tsx)
 Cursor: pointer on hover.
-Checked State:
+Checked State: Turns green when clicked.
+pointer Login with Code (Switch to OTP Login Form)
+Underlined text with cursor-pointer.
+pointer Sign In Button (@mainButton.tsx)
+Uses variant="primary".
+Disabled State: bg-black-5 cursor-not-allowed.
+Enabled State: bg-black-100 text-white.
+@ OTP Login Form (otpInput.tsx)
+pointer Displays when "Login with Code" is clicked (hides email-password form).
+pointer 6-Digit OTP Input Fields (Styled circle inputs).
+pointer Auto-focus Behavior: Moves to next input on typing.
+pointer Error State: Red border if the entered code is incorrect.
+pointer "Login with Email" Link:
 
-When clicked, the checkbox should turn green (matching the image).
-Login with Code
-Underlined text.
-
-Sign In Button
-Use mainButton.tsx (@mainButton.tsx) with variant="primary".
-Button State:
-
-Disabled if any field is empty.
-Enabled when all fields are filled (Background turns black, matching the image).
-
-
-Responsive Behavior Summary
-Desktop Mode:
-
-Service Panel visible, login form aligned properly.
-Tablet & Mobile Mode:
-
-Service Panel is hidden.
-
-
-Follow up Prompt
-### Prompt-2 
-Left Side:
+Underlined text (cursor-pointer).
+On Click: Hides OTP form and shows Email-Password form.
+# Responsive Behavior Summary
+@ Desktop Mode
+Service Panel visible.
+Login form aligned properly.
+@ Tablet & Mobile Mode
+Service Panel hidden.
+Login form centered.
+"Login with Code" and "Login with Email" links switch between forms smoothly.
+# Additional Adjustments
+@ Left Side
 Background image with transparent orange overlay (50% opacity).
-In landscape mode, show the logo, service panel text, and a paragraph.
-In portrait mode, hide the left sidebar and move the logo and service panel text to the top.
-
-Right Side:
-Login form with email & password fields.
-"Login with Code" as the default link.
-
-### Prompt-3
-Use ShadCN UI components for inputs, checkboxes, and buttons.
-Spacing & Padding:
-Match as closely as possible to the provided screenshot.
-Email & Password Fields:
-Labels should have class text-black-60 and font size 13px.
-Remove the default focus color.
-Sign-In Button:
-Initially, apply bg-black-5 cursor-not-allowed.
-Once both fields are filled, change to bg-black-100 text-white.
+Landscape Mode: Show logo, service panel text, and paragraph.
+Portrait Mode: Hide left sidebar, move logo and service panel text to the top.
+@ Right Side
+Default View: Login form with Email & Password fields.
+Switching Forms: Clicking "Login with Code" hides email form and shows OTP form, and vice versa.
+# Final Goal
+Deliver a pixel-perfect, fully functional login page in Next.js, using Tailwind CSS and ShadCN UI, ensuring seamless form switching and responsive behavior.

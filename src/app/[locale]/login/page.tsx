@@ -2,19 +2,26 @@
 
 import { useState } from "react"
 import Image from "next/image"
+
+import LoginWithCodeForm from "@/components/login/loginWithCodeForm"
 import LoginForm from "@/components/login/loginForm"
 import ServicePanel from "@/components/login/servicePanel"
-import logo from "../../../../public/original-logo.svg" 
-import { fontTitle1, fontBodyNormal } from "@/styles/typography"
+import { fontBodyNormal, fontTitle1 } from "@/styles/typography"
 
+import logo from "../../../../public/original-logo.svg"
 
 export default function Login() {
-  const [email, setEmail] = useState("")
+  const [loginMethod, setLoginMethod] = useState<"email" | "code">("email")
+
+  const handleSwitchLoginMethod = (method: "email" | "code") => {
+    setLoginMethod(method)
+  }
+
   return (
     <main className="h-[100vh] w-full overflow-hidden p-[var(--spacing-4)]">
-      <div className="flex h-full w-full gap-[var(--spacing-4)] flex-col lg:flex-row">
+      <div className="flex h-full w-full flex-col gap-[var(--spacing-4)] lg:flex-row">
         {/* Tablet Header - Only visible on medium screens */}
-        <div className="lg:hidden flex flex-col items-center gap-4 w-full mb-8">
+        <div className="mb-8 flex w-full flex-col items-center gap-4 lg:hidden">
           <Image
             src={logo}
             alt="Orderific Logo"
@@ -29,10 +36,16 @@ export default function Login() {
         <div className="hidden lg:flex lg:w-[480px]">
           <ServicePanel />
         </div>
-        
+
         {/* Right Panel - Login Form */}
         <div className="flex w-full flex-1 items-center justify-center">
-          <LoginForm />
+          {loginMethod === "email" ? (
+            <LoginForm onSwitchToCode={() => handleSwitchLoginMethod("code")} />
+          ) : (
+            <LoginWithCodeForm
+              onSwitchToEmail={() => handleSwitchLoginMethod("email")}
+            />
+          )}
         </div>
       </div>
     </main>

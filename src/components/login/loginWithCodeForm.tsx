@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
 
 import {
   fontBodyNormal,
@@ -11,7 +10,13 @@ import {
 
 import { MainButton } from "../mainButton"
 
-export default function LoginWithCodeForm() {
+interface LoginWithCodeFormProps {
+  onSwitchToEmail: () => void
+}
+
+export default function LoginWithCodeForm({
+  onSwitchToEmail,
+}: LoginWithCodeFormProps) {
   const [code, setCode] = useState<string[]>(Array(6).fill(""))
   const [hasError, setHasError] = useState(false)
   const inputRefs = useRef<(HTMLInputElement | null)[]>(Array(6).fill(null))
@@ -94,12 +99,13 @@ export default function LoginWithCodeForm() {
             </div>
 
             <div className="flex items-center justify-center">
-              <Link
-                href="/login"
+              <button
+                type="button"
+                onClick={onSwitchToEmail}
                 className={`${fontButtonLarge} text-[var(--text-black-100)] underline`}
               >
                 Login with Password
-              </Link>
+              </button>
             </div>
           </div>
 

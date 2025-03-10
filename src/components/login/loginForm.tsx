@@ -12,7 +12,11 @@ import {
 import Checkbox from "../checkbox"
 import { MainButton } from "../mainButton"
 
-export default function LoginForm() {
+interface LoginFormProps {
+  onSwitchToCode: () => void
+}
+
+export default function LoginForm({ onSwitchToCode }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -98,12 +102,15 @@ export default function LoginForm() {
                   Remember me
                 </label>
               </div>
-              <a
-                href="/login-with-code"
-                className={`${fontButtonLarge} underline`}
-              >
-                Login with Code
-              </a>
+              <div className="flex items-center justify-center">
+                <button
+                  type="button"
+                  onClick={onSwitchToCode}
+                  className={`${fontButtonLarge} text-[var(--text-black-100)] underline`}
+                >
+                  Login with Code
+                </button>
+              </div>
             </div>
           </div>
 
